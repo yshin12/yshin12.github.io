@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "Home"
+    url: ../index.html
   - title: "CV"
     url: ../assets/pdf/youngkiCV.pdf
   - title: "Research"
