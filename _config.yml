@@ -12,15 +12,16 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Youngki Shin"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Youngki Shin"
-description              : "An amazing website."
+description              : " "
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -105,30 +106,32 @@ analytics:
 # Site Author
 author:
   name             : "Youngki Shin"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/shin_photo.jpg"
   bio              : "Professor of Economics"
-  location         : "Somewhere"
+  location         : 
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+    - label: "McMaster University"
+      icon: "fa fa-university"
+      url: "https://mcmaster.ca"
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar ai-1x"
+      url: "https://scholar.google.com/citations?user=vAnLx7YAAAAJ&hl=en"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/yshin12/"
+    - label: "yshin12@gmail.com"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:yshin12@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+      # url: "https://youngkishi.com"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
-
 # Site Footer
 footer:
   links:
@@ -284,9 +287,10 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: false
       author_profile: true
       read_time: true
       comments: # true
       share: true
       related: true
+

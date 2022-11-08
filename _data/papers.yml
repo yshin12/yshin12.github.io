@@ -1,0 +1,232 @@
+papers:
+  - title: "Fast and Robust Online Inference with Stochastic Gradient Descent via Random Scaling"
+    link: https://ojs.aaai.org/index.php/AAAI/article/view/20701
+    coauthors: Sokbae Lee, Yuan Liao, Myung Hwan Seo
+    journal: Proceedings of the 36th AAAI Conference on Artificial Intelligence
+    vol_no: 36(7)
+    year: 2022
+    page: 7381-7389
+    arxiv: https://arxiv.org/abs/2106.03156
+
+  - title: "Complete Subset Averaging for Quantile Regression"
+    link: https://doi.org/10.1017/S0266466621000402
+    coauthors: Ji Hyung Lee
+    journal: Econometric Theory
+    vol_no: forthcoming
+    year: July 2021
+    page: 
+    arxiv: https://arxiv.org/abs/2003.03299
+
+  - title:        "Exact Computation of Maximum Rank Correlation Estimator"
+    link:         https://doi.org/10.1093/ectj/utab013
+    coauthors:    Zvezdomir Todorov
+    journal:      Econometrics Journal
+    vol_no:       24(3)
+    year:         2021
+    page:         589-607
+    arxiv:        https://arxiv.org/abs/2009.03844
+  
+  - title:        Factor-Driven Two-Regime Regression
+    link:         https://doi.org/10.1214/20-AOS2017
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
+    journal:      Annals of Statistics
+    vol_no:       49(3)
+    year:         2021
+    page:         1656-1678
+    arxiv:        https://arxiv.org/abs/1810.11109
+
+  - title:        Complete Subset Averaging with Many Instruments
+    link:         https://doi.org/10.1093/ectj/utaa033
+    coauthors:    Seojeong Lee 
+    journal:      Econometrics Journal
+    vol_no:       24(2)
+    year:         2021
+    page:         290-314 
+    arxiv:        https://arxiv.org/abs/1811.08083
+
+  - title:        "Sparse HP Filter: Finding Kinks in the COVID-19 Contact Rate"
+    link:         https://doi.org/10.1016/j.jeconom.2020.08.008
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo 
+    journal:      Journal of Econometrics
+    vol_no:       220(1)
+    year:         2021
+    page:         158-180
+    arxiv:        https://arxiv.org/abs/2006.10555
+
+  - title:        "Desperate times call for desperate measures: government spending multipliers in hard times"
+    link:         https://doi.org/10.1111/ecin.12919
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo 
+    journal:      Economic Inquiry
+    vol_no:       58(4) 
+    year:         2020
+    page:         1949-1957
+    arxiv:        https://arxiv.org/abs/1909.09824
+
+  - title:        Oracle Estimation of a Change Point in High Dimensional Quantile Regression
+    link:         https://doi.org/10.1080/01621459.2017.1319840
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo 
+    journal:      Journal of the American Statistical Association
+    vol_no:       113(523)
+    year:         2018
+    page:         1184-1194
+    arxiv:        https://arxiv.org/abs/1603.00235
+
+  - title:        Testing for a Debt-threshold Effect on Output Growth
+    link:         https://doi.org/10.1111/1475-5890.12134
+    coauthors:    Sokbae Lee, Hyunmin Park, and Myung Hwan Seo 
+    journal:      Fiscal Studies
+    vol_no:       38(4)
+    year:         2017
+    page:         701-717
+    arxiv:        
+
+  - title:        "Treatment Effects with Unobserved Heterogeneity: A Set Identification Approach" 
+    link:         https://doi.org/10.1080/07350015.2015.1044008
+    coauthors:    Sung Jae Jun and Yoonseok Lee 
+    journal:      Journal of Business and Economic Statistics
+    vol_no:       34(2)
+    year:         2016
+    page:         302-311 
+    arxiv:        
+
+  - title:        "The Lasso for High-dimensional Regression with a Possible Change-point" 
+    link:         https://doi.org/10.1111/rssb.12108
+    coauthors:    Sokbae Lee and Myung Hwan Seo 
+    journal:      "Journal of the Royal Statistical Society: Series B" 
+    vol_no:       78(1) 
+    year:         2016 
+    page:         193-210 
+    arxiv:        https://arxiv.org/abs/1209.4875
+
+  - title:        Rank Estimation of Partially Linear Index Models
+    link:         https://doi.org/10.1111/j.1368-423X.2011.00352.x
+    coauthors:    Jason Abrevaya 
+    journal:      Econometrics Journal
+    vol_no:       14(3)
+    year:         2011
+    page:         409-437 
+    arxiv:        
+
+  - title:        Testing for Threshold Effects in Regression Models
+    link:         https://doi.org/10.1198/jasa.2011.tm09800
+    coauthors:    Sokbae Lee and Myung Hwan Seo 
+    journal:      Journal of the American Statistical Association
+    vol_no:       106(493)
+    year:         2011
+    page:         220-231 
+    arxiv:        
+
+  - title:        Heteroskedastic Transformation Models with Covariate Dependent Censoring
+    link:         https://doi.org/10.1198/jbes.2009.07227
+    coauthors:    Shakeeb Khan and Elie Tamer 
+    journal:      Journal of Business and Economic Statistics
+    vol_no:       29(1)
+    year:         2011
+    page:         40-48 
+    arxiv:        
+
+  - title:        Local Rank Estimation of Transformation Models with Functional Coefficients
+    link:         https://doi.org/10.1017/S026646660999079X
+    coauthors:    
+    journal:      Econometric Theory
+    vol_no:       26(6)
+    year:         2010
+    page:         1807-1819 
+    arxiv:        
+
+  - title:        Length-bias Correction in Transformation Models with Supplementary Data 
+    link:         https://doi.org/10.1080/07474930903039246
+    coauthors:    
+    journal:      Econometric Reviews 
+    vol_no:       28(6) 
+    year:         2009 
+    page:         658-681 
+    arxiv:        
+
+  - title:        Misspecified Markov Switching Model 
+    link:         ../assets/pdf/Shin_2009_EB.pdf
+    coauthors:    
+    journal:      Economics Bulletin 
+    vol_no:       29(2) 
+    year:         2009 
+    page:         957-963
+    arxiv:        
+
+  - title:        Semiparametric estimation of the Box-Cox transformation model 
+    link:         https://doi.org/10.1111/j.1368-423X.2008.00255.x
+    coauthors:    
+    journal:      Econometrics Journal 
+    vol_no:       11(3) 
+    year:         2008 
+    page:         517-537 
+    arxiv:        
+
+  - title:        Rank estimation of monotone hazard models 
+    link:         https://doi.org/10.1016/j.econlet.2007.11.007
+    coauthors:    
+    journal:      Economics Letters 
+    vol_no:       100(1) 
+    year:         2008 
+    page:         80-82 
+    arxiv:        
+
+workingpapers:
+  - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
+    link:
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
+    journal:      
+    vol_no:       Under Review
+    year:         October 2022 
+    page:  
+    arxiv:        https://arxiv.org/abs/2209.14502
+
+  - title:        "csa2sls: A complete subset approach for many instruments using Stata"
+    link:
+    coauthors:    Seojeong Lee, Siha Lee, and Julius Owusu
+    journal:      
+    vol_no:       Under Review
+    year:         July 2022 
+    page:  
+    arxiv:        https://arxiv.org/abs/2207.01533       
+
+  - title:         "Designing a Competitive Monotone Signaling Equilibrium"
+    link:      
+    coauthors:     Seungjin Han and Alex Sam
+    journal:       Journal of Economic Theory
+    vol_no:        Revise and Resubmit
+    year:          July 2022 
+    page:          
+    arxiv:         https://arxiv.org/abs/2109.03370
+
+  - title:         "Predictive Quantile Regression with Mixed Roots and Increasing Dimensions: ALQR Approach"
+    link:          
+    coauthors:     Rui Fan and Ji Hyung Lee
+    journal:       Journal of Econometrics
+    vol_no:        Revise and Resubmit
+    year:          August 2022
+    page:          
+    arxiv:         https://arxiv.org/abs/2101.11568
+
+  - title:         "Returns to Skill and the Evolution of Skills for Older Men" 
+    link:          
+    coauthors:     Qian Liu, Lance Lochner, and Youngmin Park
+    journal:       
+    vol_no:        
+    year:          August 2020 
+    page:          
+
+  - title:          "Wage Dynamics and Returns to Unobserved Skill"
+    link:           
+    coauthors:      Lance Lochner and Youngmin Park
+    journal:        
+    vol_no:         
+    year:           November 2017 
+    page:           
+
+  - title:          "Understanding Income Dynamics: Identifying and Estimating the Changing Roles of Unobserved Ability, Permanent and Transitory Shocks"
+    link:           
+    coauthors:      Lance Lochner
+    journal:        
+    vol_no:         
+    year:           April 2014 
+    page:           
