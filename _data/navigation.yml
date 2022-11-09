@@ -2,10 +2,10 @@
 main:
   - title: "Home"
     url: ../index.html
-  - title: "CV"
-    url: ../assets/pdf/youngkiCV.pdf
   - title: "Research"
     url: /research/
+  - title: "CV"
+    url: ../assets/pdf/youngkiCV.pdf
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
