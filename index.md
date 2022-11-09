@@ -52,6 +52,17 @@ classes: wide
 
 A full list of my research papers is available at [Research](/research/). My curriculum vitae can be downloaded from [CV](/assets/pdf/youngkiCV.pdf).
 
+## Contact Information
+**Address:**\
+Department of Economics, KTH 440 \
+McMaster University\
+1280 Main Street West\
+Hamilton, Ontario, Canada\
+L7S 4M4\
+ \
+**Phone:**\
++1 905-525-9140 x23672
+
 Updated: November 8, 2022.
 
 
