@@ -36,7 +36,7 @@ classes: wide
 
 ## Recent Working Papers
 {% for paper in site.data.papers.workingpapers %}
-  {% if forloop.index < 5 %}
+  {% if forloop.index < 6 %}
   <li>
 	  {% if paper.title %}<b>{{ paper.title }}</b>, {% endif %}
       {% if paper.coauthors %} (with {{ paper.coauthors }}), {% endif %}

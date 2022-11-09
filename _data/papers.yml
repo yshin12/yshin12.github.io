@@ -171,6 +171,15 @@ papers:
     arxiv:        
 
 workingpapers:
+  - title:        "Statistical Treatment Rules under Social Interaction"
+    link:
+    coauthors:    Seungjin Han and Julius Owusu
+    journal:
+    vol_no:       Under Review
+    year:         November 2022
+    page:
+    arxiv:        https://arxiv.org/abs/2209.09077
+
   - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
     link:
     coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
