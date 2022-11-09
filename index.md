@@ -50,7 +50,7 @@ classes: wide
 {% endfor %}
 
 
-A full list of my research papers is available at [Research](/research/). A pdf file of my curriculum vitae can be downloaded from [CV](/assets/pdf/youngkiCV.pdf).
+A full list of my research papers is available at [Research](/research/). My curriculum vitae can be downloaded from [CV](/assets/pdf/youngkiCV.pdf).
 
 Updated: November 8, 2022.
 
