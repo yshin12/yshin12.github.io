@@ -107,13 +107,15 @@ analytics:
 author:
   name             : "Youngki Shin"
   avatar           : "/assets/images/shin_photo.jpg"
-  bio              : "Professor of Economics"
+  bio              : |
+        Professor of Economics  
+        McMaster University
   location         : 
   email            :
   links:
     - label: "McMaster University"
       icon: "fa fa-university"
-      url: "https://mcmaster.ca"
+      #url: "https://mcmaster.ca"
     - label: "Google Scholar"
       icon: "ai ai-google-scholar ai-1x"
       url: "https://scholar.google.com/citations?user=vAnLx7YAAAAJ&hl=en"

@@ -44,7 +44,8 @@ classes: wide
       {% if paper.journal %} <span style="font-style: italic; color:#000099">{{ paper.journal }},</span> {% endif %}
       {% if paper.year %} {{ paper.year }} {% endif %}
       {% if paper.link %}<a href="{{ paper.link }}"  target="_blank">{{ "[journal]" }}</a> {% endif %}
-	  {% if paper.arxiv %}<a href="{{ paper.arxiv }}" target="_blank">{{ "[arXiv]" }}</a>{% endif %}
+	    {% if paper.arxiv %}<a href="{{ paper.arxiv }}" target="_blank">{{ "[arXiv]" }}</a>{% endif %}
+	    {% if paper.pdf %}<a href="{{ paper.pdf }}" target="_blank">{{ "[pdf]" }}</a>{% endif %}
   </li>
   {% endif %}
 {% endfor %}

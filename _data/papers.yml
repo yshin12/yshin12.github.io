@@ -211,7 +211,7 @@ workingpapers:
     link:          
     coauthors:     Rui Fan and Ji Hyung Lee
     journal:       Journal of Econometrics
-    vol_no:        Revise and Resubmit
+    vol_no:        Cond. Accepted
     year:          August 2022
     page:          
     arxiv:         https://arxiv.org/abs/2101.11568
@@ -222,7 +222,8 @@ workingpapers:
     journal:       
     vol_no:        
     year:          August 2020 
-    page:          
+    page:      
+    pdf:           /assets/pdf/LLPS_ID_2020.pdf    
 
   - title:          "Wage Dynamics and Returns to Unobserved Skill"
     link:           
@@ -231,6 +232,7 @@ workingpapers:
     vol_no:         
     year:           November 2017 
     page:           
+    pdf:           /assets/pdf/LPS_ID_2017.pdf    
 
   - title:          "Understanding Income Dynamics: Identifying and Estimating the Changing Roles of Unobserved Ability, Permanent and Transitory Shocks"
     link:           
@@ -239,3 +241,4 @@ workingpapers:
     vol_no:         
     year:           April 2014 
     page:           
+    pdf:           /assets/pdf/LPS_ID_2014.pdf    
