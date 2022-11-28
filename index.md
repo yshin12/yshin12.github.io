@@ -13,7 +13,7 @@ classes: wide
 
 ## Recent Publications
 {% for paper in site.data.papers.papers %}
-  {% if forloop.index < 6 %}
+  {% if paper.recent %}
   <li>
 	  {% if paper.title %}<b>{{ paper.title }}</b>, {% endif %}
 	  {% if paper.coauthors %} (with {{ paper.coauthors }}), {% endif %}
@@ -36,7 +36,7 @@ classes: wide
 
 ## Recent Working Papers
 {% for paper in site.data.papers.workingpapers %}
-  {% if forloop.index < 6 %}
+  {% if paper.recent %}
   <li>
 	  {% if paper.title %}<b>{{ paper.title }}</b>, {% endif %}
       {% if paper.coauthors %} (with {{ paper.coauthors }}), {% endif %}
@@ -64,7 +64,7 @@ L8S 4M4\
 **Phone:**\
 +1 905-525-9140 x23672
 
-Updated: November 9, 2022.
+Updated: November 28, 2022.
 
 
 

@@ -1,4 +1,14 @@
 papers:
+  - title:         "Predictive Quantile Regression with Mixed Roots and Increasing Dimensions: The ALQR Approach"
+    link:          
+    coauthors:     Rui Fan and Ji Hyung Lee
+    journal:       Journal of Econometrics
+    vol_no:        Forthcoming
+    year:          November 2022
+    page:          
+    arxiv:         https://arxiv.org/abs/2101.11568
+    recent:        TRUE
+
   - title: "Fast and Robust Online Inference with Stochastic Gradient Descent via Random Scaling"
     link: https://ojs.aaai.org/index.php/AAAI/article/view/20701
     coauthors: Sokbae Lee, Yuan Liao, Myung Hwan Seo
@@ -7,15 +17,17 @@ papers:
     year: 2022
     page: 7381-7389
     arxiv: https://arxiv.org/abs/2106.03156
+    recent:       TRUE
 
   - title: "Complete Subset Averaging for Quantile Regression"
     link: https://doi.org/10.1017/S0266466621000402
     coauthors: Ji Hyung Lee
     journal: Econometric Theory
-    vol_no: forthcoming
+    vol_no: Forthcoming
     year: July 2021
     page: 
     arxiv: https://arxiv.org/abs/2003.03299
+    recent:       TRUE
 
   - title:        "Exact Computation of Maximum Rank Correlation Estimator"
     link:         https://doi.org/10.1093/ectj/utab013
@@ -34,6 +46,7 @@ papers:
     year:         2021
     page:         1656-1678
     arxiv:        https://arxiv.org/abs/1810.11109
+    recent:       TRUE
 
   - title:        Complete Subset Averaging with Many Instruments
     link:         https://doi.org/10.1093/ectj/utaa033
@@ -179,6 +192,7 @@ workingpapers:
     year:         November 2022
     page:
     arxiv:        https://arxiv.org/abs/2209.09077
+    recent:       TRUE
 
   - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
     link:
@@ -188,6 +202,7 @@ workingpapers:
     year:         October 2022 
     page:  
     arxiv:        https://arxiv.org/abs/2209.14502
+    recent:       TRUE
 
   - title:        "csa2sls: A complete subset approach for many instruments using Stata"
     link:
@@ -206,15 +221,7 @@ workingpapers:
     year:          July 2022 
     page:          
     arxiv:         https://arxiv.org/abs/2109.03370
-
-  - title:         "Predictive Quantile Regression with Mixed Roots and Increasing Dimensions: ALQR Approach"
-    link:          
-    coauthors:     Rui Fan and Ji Hyung Lee
-    journal:       Journal of Econometrics
-    vol_no:        Conditionally Accepted
-    year:          August 2022
-    page:          
-    arxiv:         https://arxiv.org/abs/2101.11568
+    recent:       TRUE
 
   - title:         "Returns to Skill and the Evolution of Skills for Older Men" 
     link:          
