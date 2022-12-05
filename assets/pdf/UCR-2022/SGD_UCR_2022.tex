@@ -180,7 +180,7 @@
 with Tens of Millions of Observations}
 \author[Lee, Liao, Seo \& Shin]{Sokbae Lee, Yuan Liao, Myung Hwan Seo \& Youngki Shin \\
 \vskip5pt
-\tiny Columbia, Rutgers, SNU, McMaster}
+\tiny Columbia, Rutgers, SNU, \& McMaster}
 \date{\\
 University of California, Riverside\\
 December 6, 2022}
@@ -198,7 +198,7 @@ December 6, 2022}
 
 
 \begin{frame}{Main Object}
-In this paper, we tackle on the \tcb{inference} problem of quantile regression (QR) with $(n,p)\sim(10^7,10^3)$:
+In this paper, we tackle on the \tcb{inference} problem of quantile regression (QR) with $(n,d)\sim(10^7,10^3)$:
 		$$
 		y_i = x_i'\beta^*+ \varepsilon_i,\quad P(\varepsilon\leq 0|x_i)= \tau.
 		$$
@@ -210,13 +210,26 @@ In this paper, we tackle on the \tcb{inference} problem of quantile regression (
 		\item We also apply many controls to mitigate the bias, which turns out to be over 1,000. 
 		
 		\item For a smaller sample size, we need additional assumptions, e.g.\ sparsity in the lasso. 
-		
-		\item It turns out that we need a novel method.
+
 		
 	\end{itemize}
 	
 \end{frame}
 
+\begin{frame}
+\frametitle{Big Picture}
+\bit
+	\item Standard asymptotics: $n \gg d$. E.g.~$n=1000$ and $d=20$.
+	\item High-dimensional approach: $n \sim d$ or $n \ll p$. E.g.~$n \sim \exp(d)$
+	\bit
+		\item[-] Threshold regression: LSS (2016, JRSSB), LLSS (2018, JASA), LLSS (2021a, AOS).
+		\item[-] Filtering and prediction: LLSS (2021b, JOE), LS (forthcoming, JOE)
+	\eit
+	\item The current problem is $n=10^7$ and $d=10^3$. Can we go back to the standard framework?
+
+	\item It turns out that we need \tcb{a novel approach} because of the implementation issue.
+\eit
+\end{frame}
 
 \begin{frame}{Standard QR Estimator}
 	Let $\{Y_i\equiv((y_i,x_i) \in \mathbb{R}^(1+d): i=1,\ldots,n\}$ be a random sample generated from 
@@ -232,7 +245,6 @@ In this paper, we tackle on the \tcb{inference} problem of quantile regression (
 	Q(\beta) & := \mathbb{E}[q(\beta,Y_i)]\\
 	q(\beta, Y_i) &:=(y_i-x_i'\beta)(\tau-I\{y_i -x_i'\beta \le0\}).
 	\end{align*}
-	\bigskip
 
 	The QR estimator is defined as
 	$$
@@ -313,7 +325,7 @@ the averaging estimator $\bar{\beta}_{n}$ is asymptotically normal:
 \mathcal{N} (0, \Upsilon),
 \end{align*}
 where the asymptotic variance $\Upsilon$ has a sandwich form $$\Upsilon := H^{-1}S H^{-1},$$ and
-$H := \nabla^{2}Q\left(\beta^{*}\right)$ is the Hessian matrix
+$H := \mathbb{E}[\nabla^{2}Q\left(\beta^{*}\right)]$ is the Hessian matrix
 and $S := \mathbb{E} \left[\nabla q\left(\beta^{*},Y\right)\nabla q\left(\beta^{*},Y\right)'\right]$ is the score variance.
 \end{frame}
 
@@ -390,7 +402,7 @@ the naive implementation of estimating it requires storing all data, thereby los
 \begin{frame}{Method 1: Plug-In}
 
 
-Chen et al. (2020) addressed this issue by  estimating   $H$ and $S$ using the online iterated estimator $\beta_t$, and recursively updating   them   whenever a new observation  is available.
+Chen et al.~(2020) addressed this issue by  estimating   $H$ and $S$ using the online iterated estimator $\beta_t$, and recursively updating   them   whenever a new observation  is available.
 
 \bigskip 
 However, the plug-in estimator requires that the Hessian matrix be computed to estimate $H$.
@@ -401,8 +413,8 @@ In other words, it is necessary to have strictly more inputs than  the SGD solut
 \bigskip
 In applications, it can be demanding to compute the Hessian matrix and its inverse. 
 
-\bigskip
-They do not cover the quantile regression.
+%\bigskip
+%They do not cover the quantile regression.
 
 \end{frame}
 
@@ -482,13 +494,12 @@ and can be time-consuming.
 \begin{frame}{Our Approach: Random Scaling}
 
 \begin{itemize}
-	\item Lee, Liao, Seo, Shin (LLSS, 2022) proposed not to estimate the asymptotic variance $\Upsilon$,  but to studentize   $\sqrt{n}\left(\bar{\beta}_{n}-\beta^{*}\right)$, or its each element, via $ \widehat{V}_{n}^{1/2} $, wheree
+	\item Lee, Liao, Seo, Shin (LLSS, 2022) proposed not to estimate the asymptotic variance $\Upsilon$,  but to studentize   $\sqrt{n}\left(\bar{\beta}_{n}-\beta^{*}\right)$ via $ \widehat{V}_{n}^{1/2} $, where
 	\begin{align*}\label{def:random-scaling}
 	\widehat{V}_{n} := \frac{1}{n}\sum_{s=1}^{n}
 	\left\{ \frac{1}{\sqrt{n}} \sum_{t=1}^{s} \left( \beta_{t}-\bar{\beta}_{n} \right) \right \}
-	\left\{ \frac{1}{\sqrt{n}} \sum_{t=1}^{s} \left( \beta_{t}-\bar{\beta}_{n} \right) \right \}',
+	\left\{ \frac{1}{\sqrt{n}} \sum_{t=1}^{s} \left( \beta_{t}-\bar{\beta}_{n} \right) \right \}'.
 	\end{align*}
-	or by its corresponding diagonal term, $ \widehat{V}_{n,jj}^{1/2}  $.
 	\note{this is the integral of the square of a centered partial sum process or that of empirical Brownian Bridge}
 	
 	\item
@@ -548,6 +559,7 @@ and can be time-consuming.
 \end{frame}
 
 
+\begin{comment}
 
 \begin{frame}{Criteria for Online Inference Methods}
 
@@ -589,22 +601,24 @@ respectively.
 
 \end{frame}
 
+\end{comment}
 
 
 
-\begin{frame}{Additional Features}
+\begin{frame}{Additional Remarks/Features}
 	
 	\begin{itemize}
 		\item 
-		Initialize from    smoothed QR from Kaplan and Sun (2017), Fernandes et al (2021), He et al (2021).
+		We set an initial value $\beta_0$ from He et al (2021). Works well with only 1\% or 5\% of the sample. 
 		
-		\item Specifically, computed  fast using gradient descent update;  R package:  \texttt{conquer} and 5\% of the data to compute $\beta_0$, 
-		
-		\item Stepsize $ \gamma_{t} $ is set closer to upper bound, $ t^{-0.501} $. 
+		\item We set the step size $ \gamma_{t} $ is set closer to upper bound, $ t^{-0.501} $. 
+
+		\item It does not involve any inverse matrix. We can iterate only a sub-matrix of $\widehat{V}_n$. E.g.~a scalar vs.~a $(1000\times 1000)$ matrix.
 	\end{itemize}
 	
 \end{frame}
 
+\begin{comment}
 \begin{frame}{Inference for Sub-vectors}
 	
 	
@@ -625,6 +639,8 @@ respectively.
 	\end{itemize}
 	
 \end{frame}
+\end{comment}
+
 
 \begin{comment}
 \begin{frame}{Forneron and Ng (2020)}
@@ -744,9 +760,10 @@ Note that the scaling $\Upsilon^{1/2}$ is equal to the square root  asymptotic v
 
 \begin{frame}{PJ's approximation}
 	Their CLT is built on a brilliant stochastic approximation that 
-	\[  \frac{1}{\sqrt{n}}\sum_{t=1}^{\left[n\right]}\left(\beta_{t}-\beta^{*}\right) = \frac{1}{\sqrt{n}}\sum_{t=1}^{\left[n\right]}H^{-1}\xi_{t} + o_p (1),
+	\[  \frac{1}{\sqrt{n}}\sum_{t=1}^{n}\left(\beta_{t}-\beta^{*}\right) = \frac{1}{\sqrt{n}}\sum_{t=1}^{n}H^{-1}\xi_{t} + o_p (1),
 	 \]
-	 where $ \xi_{t}\ $ is an mds sequence whose variance converges to the score variance. 
+	 where $ \xi_{t}\ $ is a martingale difference sequence (MDS) whose variance converges to the score variance. 
+	 \bigskip
 	 
 	 For FCLT, it is required to extend the approximation to the uniform approximation. 
 \end{frame}
@@ -755,13 +772,13 @@ Note that the scaling $\Upsilon^{1/2}$ is equal to the square root  asymptotic v
 \begin{frame}{Conditions for Quantile Regression}
 	Let the partial derivative
 	$\frac{d}{de}f_{\varepsilon}(\cdot|x_i)$ exist and assume that 
-	\begin{enumerate}[(i)]	
+	\begin{enumerate}
 		
 		%\item[(i)] for $q(\beta;x, y)= (y-x'\beta)(\tau-I\{y-x'\beta\leq 0\})$,
 		% $$\lim\inf_{\left| \beta \right|\to\infty} E [q(\beta; x_i, y_i)] > \mathbb E [q(\beta^*_\tau; x_i, y_i)],$$
 		
 		\item
-		there exist positive constants $\epsilon$ and $c_0$ such that 
+		There exist positive constants $\epsilon$ and $c_0$ such that 
 		$$
 		\inf_{  | \beta-\beta^* |<\epsilon }\lambda_{\min} \left(  \mathbb E [x_ix_i'f_{\varepsilon}(x_i'(\beta-\beta^*)|x_i)] \right) > c_0,
 		$$
@@ -780,10 +797,10 @@ Note that the scaling $\Upsilon^{1/2}$ is equal to the square root  asymptotic v
 	\end{enumerate}
 	
 	\bigskip
-	This is a set of low-level conditions to meet Gadat and Panloup (2022)'s consistency without strong convexity and an extension of LLSS (2022)'s FCLT. 
+	This is a set of low-level conditions to meet Gadat and Panloup (2022)'s consistency without strong convexity.% and an extension of LLSS (2022)'s FCLT. 
 	
 	\note{	
-		Condition (i) can be viewed as a sort of global identifiability condition, which is reasonable as $\beta \mapsto q(\beta, Y_i)$ is convex. 
+		Condition (i) can be viewed as a global identification condition, which is reasonable as $\beta \mapsto q(\beta, Y_i)$ is convex. 
 		Conditions (ii)-(iv) impose some moment conditions and are satisfied, for example, if $x_i$ are bounded 
 		and 
 		both $f_{\varepsilon}(\cdot|x_i)$ and $\frac{d}{de}f_{\varepsilon}(\cdot|x_i)$ are uniformly bounded.
@@ -822,7 +839,7 @@ processes and $\bar{W}\left(r\right):=W\left(r\right)-rW\left(1\right)$.
 
 \begin{frame}{Special Case: t-Statistic}
 
-the t-statistic for each $ j $ converges in distribution:
+The t-statistic for each $ j $ converges in distribution:
 \begin{align*}\label{t-stat-limit}
 \frac{\sqrt{n}\left(\bar{\beta}_{n,j}-\beta_{j}^{*}\right)}{\sqrt{\widehat{V}_{n,jj}}}
 \overset{d}{\to}
@@ -831,11 +848,11 @@ W_1\left(1\right)  \left[ \int_{0}^{1} \left\{ W_1\left(r\right)-rW_1\left(1\rig
 
  \begin{itemize}
  	\item 
- 	The asymptotic distribution is mixed normal and symmetric around zero,
+ 	The asymptotic distribution is mixed normal and symmetric around zero.
  	
  	\item It  is the same as the distribution of the statistics observed in the estimation of the cointegration vector by Johansen  (1991). They are different statistics but have the identical distribution as functions of the standard Wiener process as shown by Abadir and Paruolo (2002).
  	
- 	\item Abadir and Paruolo (1997) obtained a closed form density function. 
+ % 	\item Abadir and Paruolo (1997) obtained a closed form density function. 
  \end{itemize}
 
 \end{frame}
@@ -853,52 +870,53 @@ W_1\left(1\right)  \left[ \int_{0}^{1} \left\{ W_1\left(r\right)-rW_1\left(1\rig
 
 
  
-\begin{frame}{MC Simulations} 
+\begin{frame}{Settings} 
 	\begin{itemize}
-		\item Setting:  $dim(x_t)=d\in\{10, 30, 180, 320, 1000\}$, $n\in\{10^5, 10^6,10^7\}.$
-		\item Compare 5 methods:
+		\item $\mbox{dim}(x_t)=d\in\{10, 30, 180, 320, 1000\}$
+		\item $n\in\{10^5, 10^6,10^7\}.$
+		\item We compare 5 methods:
 		
-		\begin{description}
-			\item[Proposed]: proposed
+		\bit
+			\item \tcb{S-subGD}: our method
 			
-			\item[QR]: ``standard", R package \texttt{quantreg}. 
+			\item \tcb{QR}: ``standard", R package \texttt{quantreg}. 
 			
-			\item[Conquer-plugin]: Fernandes et al (2021), R package
+			\item \tcb{CONQUER-plugin}: He et al (2021), R package
 			\texttt{conquer}.
 			
-			\item[Conquer-bootstrap]: He et al (2021), R package
+			\item \tcb{CONQUER-bootstrap}: He et al (2021), R package
 			\texttt{conquer}.
 			
-			\item[SGD-bootstrap]: Fang et al et al (2016). Bootstrap-online learning
+			\item \tcb{SGD-bootstrap}: Fang et al.~(2018). Bootstrap-online learning
 			
 			
-		\end{description}
+		\eit
 		
 		\medskip
-		\item Constraints: 10 hour and 192 Gb RAM for single replication
+		\item Constraints: 10 hour and 192 Gb RAM for one replication.
 	\end{itemize}
 	
 	
 \end{frame}
 
 
+
 \begin{frame}{Can you compute?} 
 	
-	\begin{description}
+	\bit
 		
-		\item[Proposed]: no pressue
+		\item \tcb{S-subGD}: Yes for all cases.
 		
-		\item[QR]:  out-of memory when $d=320$ and $n\sim 10^7$
+		\item \tcb{QR}:  out-of memory when $n= 10^7$ and $d=320$.
 		
-		\item[Conquer-plugin]:  out-of memory when $n\sim 10^6$
+		\item \tcb{Conquer-plugin}:  out-of memory when $n=10^6$.
 		
-		\item[Conquer-bootstrap]:
-		out-of-time when   $d=320$ and $n\sim 10^7$ 
+		\item \tcb{Conquer-bootstrap}: out-of-time when $n= 10^7$ and $d=320$.
 		
-		\item[SGD-bootstrap]: barely survived 
+		\item \tcb{SGD-bootstrap}: Survived but 100 times slower than S-subGD.
 		
 		
-	\end{description}
+	\eit
 	
 	
 	
@@ -906,10 +924,10 @@ W_1\left(1\right)  \left[ \int_{0}^{1} \left\{ W_1\left(r\right)-rW_1\left(1\rig
 
 \begin{frame}
 	\begin{figure}[!htbp]
-		\caption{Computation time} \label{fig:time}
+		\caption{Computation Time} \label{fig:time}
 		\centering
 		\vskip10pt
-		\includegraphics[width=0.7\textwidth]{figures/fig_time.png}
+		\includegraphics[width=\textwidth]{figures/fig_time.png}
 	\end{figure}
 
 Note: Observe 'NA' for several cases.
@@ -917,7 +935,7 @@ Note: Observe 'NA' for several cases.
 \end{frame}
 \begin{frame}
 	\begin{figure}[!htbp]
-		\caption{Computation time} \label{fig:time}
+		\caption{Relative Computation Time} \label{fig:time}
 		\centering
 		\vskip10pt
 		\includegraphics[width=\textwidth]{figures/fig_rel_time.png}
@@ -950,7 +968,7 @@ Note: Observe 'NA' for several cases.
 
 
 \begin{frame}
-	
+\frametitle{Stretch Out}
 	\begin{table}[htb]
 		\centering
 		\caption{Performance of S-subGD: $n=10^7$} 
@@ -1203,30 +1221,29 @@ Note: Observe 'NA' for several cases.
 \begin{frame}
 	\vfill
 	\centering
-	\LARGE{Application to College Wage Premium}
+	\LARGE{Application: College Wage Premium}
 	\vfill
 \end{frame}
 
 \begin{frame}{Gender Gap in College Wage Premium}
 	
 	\begin{itemize}
-		\item a stylized fact that the higher college wage premium for women as the major cause for attracting more women to attend and graduate from colleges than men (e.g., Goldin et al. (2006); Chiappori et al. (2009)).
+		\item The higher college wage premium for women has been suggested as a major cause for attracting more women to colleges than men (e.g., Goldin et al. (2006); Chiappori et al. (2009)).
 		
-		\item Current Population Survey (CPS) data : top coded wage issue $ \Rightarrow  $ Hubbard's (2011) quantile regression
+		\item Top coded wage issue: Hubbard (2011) estimated the model by censored regression and quantile regression
 		
 		\item Our Goals:
 		
 		\begin{enumerate}
-			\item identify (if any) the heterogeneous effects across quantiles 
+			\item To identify (if any) heterogeneous effects across quantiles.
+
+			\item To understand the difference in gender trends in the college wage premium.
+
+			\item To utilize a large number of controls (census data).
 			
-			\item properly control other observable characteristics, such as work experience. \note{We use the data from IPUMS USA that contains several millions of workers. The main motivation of using  ultra-large datasets for wage regressions is to deal with high-dimensional regressors within a simple parametric quantile regression model. As has been crucially pointed out in the literature,  work experience is 
-				an important factor in wage regressions, but is difficult to be measured precisely. One typical means of controlling for the experience is to flexibly interact workers' age with various state-level dummies, which would create over one thousand regressors, so that  a very large sample size would be desirable to obtain precise estimates. 
-				But the ultra-large dataset makes most existing inference procedures for quantile regression fail to work. 
-			}
+			%\item understand the trends in the college wage premium respectively for female and male
 			
-			\item understand the trends in the college wage premium respectively for female and male
 			
-			\item understand the difference in gender trends in the college wage premium.
 			
 		\end{enumerate}
 		
@@ -1235,9 +1252,10 @@ Note: Observe 'NA' for several cases.
 
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Data}
-	\begin{itemize}
-		\item We use the samples over six different years (1980, 1990, 2000-2015) from IPUMS USA at \url{https://usa.ipums.org/usa/}. 
+\begin{frame}
+\frametitle{Samples from IPUMS}
+	\bit
+		\item We use the samples over several different years (1980, 1990, 2000-2015) from IPUMS USA.
 		
 		\item
 		In the years from 1980 to 2000, we use the 5\% State sample which is a 1-in-20 national random sample of the population. 
@@ -1246,40 +1264,18 @@ Note: Observe 'NA' for several cases.
 		\item The sampling ratio varies from 1-in-261 to 1-in-232 in 2001-2004, but it is set to a 1-in-100 national random sample of the population after 2005. 
 		
 		\item
-		To balance the sample size, we bunch the sample every 5 year after 2001. 
-		
-		\item We restrict our sample to $White$, $18 \le Age \le 65$,  and $Wage \ge \$62$, which is a half of minimum wage earnings in 1980 ($\$3.10 \times 40 \mbox{hours} \times 1/2$). 
-		
-		\item
-		$Wage$ denotes the implied weekly wage that is computed by dividing yearly earnings by weeks worked last year. 
-		\item
-		We only consider full-time workers who worked more than 30 hours per week.
-		
-		\item
-		Then, we compute the \textit{real} wage using the personal consumption expenditures price index (PCEPI) normalized in 1980. 
-		
-		\item
-		The data cleaning leaves us with 3.6-4.7 million observations besides 2001-2005, where we have around 2.5 million observations.
-		
-		\item  $Educ$ denotes an education dummy for some college or above. 
-		
-		\item For control, we use 12 age group dummies with a four-year interval, 51 states dummies (including D.C.), and their interactions.
-		The model contains 1226 covariates in total.
-		We also add 4 additional year dummies for the 5-year combined samples after 2001. 
-		
-
-	\end{itemize}
+		To balance the sample size, we bunch the sample every 5 year after 2001. 		
+	\eit
 \end{frame}
 
 \begin{frame}
-	
+\frametitle{Summary Statistics}
 	\begin{table}[ht]
-		\caption{Summary Statistics} \label{tb:summary_stat}
 		\centering
 		\footnotesize
 		\begin{tabular}{crcccc}
 			\hline
-			Year & Sample Size & $\mathbb E(F$) & $\mathbb E(Edu$) & $\mathbb E(Edu|M$) & $\mathbb E(Edu|F$) \\ 
+			Year & Sample Size & $\mathbb E(F$) & $\mathbb E(Educ$) & $\mathbb E(Educ|M$) & $\mathbb E(Edu|F$) \\ 
 			\hline
 			1980      & 3,659,684 & 0.390 & 0.433 & 0.444 & 0.416 \\ 
 			1990      & 4,192,119 & 0.425 & 0.543 & 0.537 & 0.550 \\ 
@@ -1290,10 +1286,42 @@ Note: Observe 'NA' for several cases.
 			\hline
 		\end{tabular}
 	\end{table}
+	\bit
+		\item  $Educ$ denotes an education dummy for some college or above. 
+
+		\item $White$, $18 \le Age \le 65$,  and Full time workers (30 hours per week)
+
+		\item $Wage \ge \$62$, which is a half of minimum wage earnings in 1980 ($\$3.10 \times 40 \mbox{hours} \times 1/2$). 
+		
+		\item
+		The data cleaning leaves us with 3.6-4.7 million observations besides 2001-2005, where we have around 2.5 million observations.
+		
+	\eit
 	
 			\note{The table confirms that female college education has increased substantially over the years and female workers received more college education than male workers since 1990. }
-	
+
 \end{frame}
+
+\begin{frame}
+\frametitle{Regression Model}
+\begin{footnotesize}
+\begin{align*}
+    \log(Wage_i) = & \beta_0 + \beta_1 Female_i + \beta_2 Educ_i + \beta_3 Female_i\cdot Educ_i\\ & + \theta_1'X_i + \theta_2' (X_i\cdot Female_i) + \varepsilon_i,
+\end{align*}
+\end{footnotesize}
+	\bit
+		\item For control variable $X_i$, we use 12 age group dummies with a four-year interval, 51 states dummies (including D.C.), and their interactions. Note that $(X_i\cdot Female_i)$ implies that there exist up to 3-way interactions. 
+
+		\item The model contains 1226 covariates in total. 
+
+		\item We also add 4 additional year dummies for the 5-year combined samples after 2001. 
+
+		
+	\eit
+
+\end{frame}
+
+
 
 \begin{frame}
 	
@@ -1309,6 +1337,20 @@ Note: Observe 'NA' for several cases.
 			
 	\end{figure}
 	
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}
+    \centering
+    \caption{Difference of College Premium: Combining 5-Year Data} %Model 3 with combining 5-year data. Full-time}
+    \label{fig:diff_5yr_full}
+    \hskip15pt
+    \begin{tabular}{c c c}
+        \includegraphics[width=0.3\textwidth]{figures/diff_chart_0.1_03_FullT_5yr.png} & \includegraphics[width=0.3\textwidth]{figures/diff_chart_0.5_03_FullT_5yr.png} & \includegraphics[width=0.3\textwidth]{figures/diff_chart_0.9_03_FullT_5yr.png} 
+    \end{tabular}
+  %  \flushleft{\footnotesize Notes. We estimate the model with combining 5 years after 2001.}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -1347,20 +1389,21 @@ Note: Observe 'NA' for several cases.
 \begin{frame}{Conclusion} 
 	\begin{itemize}
 		
-		\item We provide a new scalable on-line inference method for Quantile Regression with ``ultra-large" sample sizes. 
+		\item We provide a new scalable on-line inference method for quantile regression with ``ultra-large" sample sizes and a large number of covariates. 
 		
-		\item Fast + small memory cost
+		\item It is efficient in terms of both computation time and the memory usage. 
+
+		\item Simulations and the empirical application shows that the S-subGD method could open a new realm of empirical studies. 
 		
-		\item Potential Extensions:
+		\item We are currently working on:
 		
 		\begin{itemize}
 			
-			\item cluster robust inference
+			\item Endogenous regressor (GMM or Structural models)
+
+			\item Cluster robust inference (federated learning)
 			
-			\item high-dimensional settings and penalized estimation like Lasso.
-			
-			\item more sophisticated random scaling
-			
+			\item High-dimensional settings
 			
 			
 		\end{itemize}
