@@ -180,7 +180,7 @@
 with Tens of Millions of Observations}
 \author[Lee, Liao, Seo \& Shin]{Sokbae Lee, Yuan Liao, Myung Hwan Seo \& Youngki Shin \\
 \vskip5pt
-\footnotesize Columbia Univ.~~Rutgers Univ.~~Seoul National Univ.~~McMaster Univ.}
+\tiny Columbia, Rutgers, SNU, McMaster}
 \date{\\
 University of California, Riverside\\
 December 6, 2022}
@@ -197,113 +197,64 @@ December 6, 2022}
 \section{Introduction}
 
 
-\begin{frame}{Motivation}
-	
-	\begin{itemize}
-		
-		\item We consider a quantile regression, cross-sectional data.
+\begin{frame}{Main Object}
+In this paper, we tackle on the \tcb{inference} problem of quantile regression (QR) with $(n,p)\sim(10^7,10^3)$:
 		$$
-		y_i = x_i'\beta+ e_i,\quad P(e_i\leq 0|x_i)= \tau
+		y_i = x_i'\beta^*+ \varepsilon_i,\quad P(\varepsilon\leq 0|x_i)= \tau.
 		$$
-		
-		\item with more empahsis  on inference. 
-		
-		\medskip
-		
-		\item \textcolor{blue}{This paper:} $n\sim 10^7.$
-		
-		\item  Standard M-estimation would involve:
-		
-		(1) solving  optimization problems
-		
-		(2) estimate sandwich matrices
-		
-		
-		\medskip
-		\item  
-		Neither  would be an easily scalable task for datasets of such sizes.  
-		
-	\end{itemize}
-	
-\end{frame}
 
-
-\begin{frame}{Motivation}
-	
 	\begin{itemize}
+
+		\item We estimate the wage structure (college premium) using the data from IPUMS USA. The sample size of each year is over 14 millions. 
 		
-		\item    IPUMS USA dataset   collects   U.S. census microdata from 2000 to 2020.  3.5 million households/year
+		\item We also apply many controls to mitigate the bias, which turns out to be over 1,000. 
 		
-		\medskip
-		\item 
-		Most studies   use much smaller subsamples, with two recommended features by IPUMS:
+		\item For a smaller sample size, we need additional assumptions, e.g.\ sparsity in the lasso. 
 		
-		(1)  ``Select cases":   only particular kinds of  households
-		
-		(2) ``Customize sample sizes" :  draw smaller random subsets. 
-		
-		\medskip
-		
-		\item Researchers also  manually filter the information for sample selections. 
+		\item It turns out that we need a novel method.
 		
 	\end{itemize}
+	
 \end{frame}
 
 
-\begin{frame}{Motivation}
-	
-	\begin{itemize}
-		
-		
-		\item All these may introduce sample selection biases.
-		
-		\item IPUMS reminded cautions to researchers throughout the users' selection sessions.
-		
-		\begin{itemize}
-			\item  \textit{``the population at risk for answering the question -- can differ subtly or markedly across samples."}
-			
-			\medskip
-			
-			\item \textit{``Users should be careful with the case selection feature... thereby inadvertently excluding those samples from your dataset."}
-		\end{itemize}
-	
-		
-	\end{itemize}
+\begin{frame}{Standard QR Estimator}
+	Let $\{Y_i\equiv((y_i,x_i) \in \mathbb{R}^(1+d): i=1,\ldots,n\}$ be a random sample generated from 
+		$y_i = x_i'\beta^*+ \varepsilon_i,\quad P(\varepsilon\leq 0|x_i)= \tau.$
+	\bigskip 
+
+	The object of interest is
+	$$
+		\beta^* := \arg\min_{\beta \in \mathbb{R}^d} Q(\beta),
+	$$
+	where 
+	\begin{align*}
+	Q(\beta) & := \mathbb{E}[q(\beta,Y_i)]\\
+	q(\beta, Y_i) &:=(y_i-x_i'\beta)(\tau-I\{y_i -x_i'\beta \le0\}).
+	\end{align*}
+	\bigskip
+
+	The QR estimator is defined as
+	$$
+		\widehat{\beta}_n := \arg\min_{\beta \in \mathbb{R}^d} \frac{1}{n} \sum_{i=1}^{n} q(\beta_,Y_i).
+	$$
 \end{frame}
 
+\begin{frame}{Standard QR Estimator (cont.)}
+	The standard M-estimator theory gives us 
+	\eqs{
+	\sqrt{n}(\widehat\beta_n-\beta^*) \overset{d}{\to} N(0, \tau(1-\tau)H^{-1}\mathbb E[x_ix_i'] H^{-1}),
+	}
+	where $H= \mathbb E [f_{\varepsilon}(0|x_i)x_ix_i']$ and $f_{\varepsilon}(\cdot|x_i)$ is the conditional distribution of $\varepsilon_i$ given $x_i$
 
-
-
-
-\begin{frame}{This paper}
-	
-	\begin{itemize}
-		\item Propose a stochastic (sub-) gradient descent (SGD) based method, with advantages of:
-		
-		\begin{itemize}
-			\item \textcolor{blue}{fast}:   less than 10 seconds on a regular PC for $n\sim 10^7$. 
-			
-			\item       \textcolor{blue}{memory-efficient}:  computed recursively, do not store many observations in the computation.
-		\end{itemize}
-		
-		
-		\item How it works:
-		
-		\begin{itemize}
-			\item SGD update gives a solution path:
-			$$
-			\underbrace{\beta_0}_{initial},\quad \beta_1,...,\beta_n
-			$$
-			$$
-			\text{Polyak-Ruppert average: } \widehat\beta:= \frac{1}{n}\sum_{i=1}^n\beta_i.
-			$$
-			\item Standardize the estimator by a transformation of the cumulative sums, denoted by $\widehat V_n$, which renders a pivotal statistic.
-		\end{itemize}
-		
-		
-		
-	\end{itemize}
+	\bit
+		\item Point estimator: Linear programming through interior-point algorithms or smoothing type estimators
+		\item Covariance estimator: 
+		The \texttt{conquer} method in He et al.~(2021) has received attention and boast its capability to make inference with $ (n,p)=(4000,100) $.
+	\eit
+	New approach: we propose a stochastic subgradient descent (\tcb{S-subGD}) method with a \tcb{random scaling}.
 \end{frame}
+
 
 
 
@@ -317,7 +268,7 @@ where $Q:=E[q(\beta,Y)]$ and $q$ is diff.~and convex. Let $\left\{ Y_{t}\right\}
     \frac{1}{n}\sum_{t=1}^n \nabla q\left(\hat{\beta},Y_{t}\right) = 0.
 }
 
-If we cannot solve it directly, the solution is computed iteratively:
+If we don't have a reduced form solution, we can solve it iteratively:
 \eqs{
     \hat{\beta}_{m} = \hat{\beta}_{m-1} - \gamma_m \frac{1}{n}\sum_{t=1}^n \nabla q\left(\hat{\beta}_{m-1},Y_{t}\right).
 }
@@ -382,72 +333,29 @@ Examples include
 \bit
     \item Linear regression (with a large dataset)
     \item Logistic regression
-    \item \tcb{Quantile regression (using a subgradient)}
+    \item \tcb{Quantile regression (using a subgradient)}:
+    		$$
+			\nabla q(\beta; x,y)= - x[u-1\{y\leq x'\beta\}],
+			$$
 \eit
 \end{frame}
 
 
 
-\begin{frame}[allowframebreaks]{Linear Quantile Regression}
-	
-	\begin{itemize}
-		\item  Consider the linear quantile regression
-		$$
-		y_{t}= x_t'\beta^*_u+ \varepsilon_t, \;\;  P(\varepsilon_t\leq 0|x_t)= u\in(0,1).
-		$$
-		%where $P(\varepsilon_t\leq 0|x_t)= u\in(0,1)$. 
-		
-		\item The population loss is 
-		$
-		Q(\beta)= \mathbb E [q(\beta; x_t, y_t)], 
-		$ with the check function %\citep{Koenker1978}:
-		$$
-		q(\beta;x, y)= (y-x'\beta)(u-1\{y-x'\beta\leq 0\}). 
-		$$
-		
-		\item
-		As the check function $q$ is not differentiable, we propose to use its subgradient:
-		{\color{blue}
-			$$
-			\nabla q(\beta; x,y)= - x[u-1\{y\leq x'\beta\}],
-			$$
-		}
-		leading to the online update:
-		$$
-		\beta_t= \beta_{t-1} - \gamma_t \nabla q(\beta_{t-1}, x_t,y_t).
-		$$
-		
-		\item  $\bar\beta_n$ is asymptotically normal with asymptotic variance $ \Upsilon = H^{-1}SH^{-1}$, where
-		$$
-		S = \mathbb E x_tx_t' u(1-u) \quad
-		\text{ and }\quad H= \mathbb E x_tx_t' f_{\varepsilon}(0|x_t),$$ where $f_{\varepsilon}(\cdot|x_t)$ denotes the conditional density of $\varepsilon_t$ given $x_t.$ 
-		
-		\item History: Koenker and Bassett (1978)'s seminal work and application to wage regression by Chamberlain (1994), Buchinsky (1994, 1998), Angrist et al. (2006), etc
-		
-		\item Computation: Portnoy and Koenker (1997)'s linear programming through interior-point algorithms and convolution type smoothing by Fernandes et al. (2021), He et al. (2021), Tan et al. (2022). 
-		
-		\item
-		He et al's \textbf{conquer} has received attention and boast its capability to make inference with $ (n,p)=(4000,100) $.
-		
-	\end{itemize}
-	
-	
-\end{frame} 	       
 
+\begin{frame}{Overview}
+    \vfill
+    \bit
+        \item Introduction
+        \item Inference Methods
+        \item Theoretical Results
+        \item Monte Carlo Experiments
+        \item Application
+        \item Conclusion
+    \eit
+    \vfill
+\end{frame}
 
-%
-%\begin{frame}{Overview}
-%    \vfill
-%    \bit
-%        \item Introduction
-%        \item Inference Methods
-%        \item Theoretical Results
-%        \item Numerical Experiments
-%        \item Conclusion
-%    \eit
-%    \vfill
-%\end{frame}
-%
 
 
 
@@ -516,7 +424,7 @@ The batch-means estimator is based on the idea that correlations among batches t
 However, this approach requires the batch size should increase exponentially fast, and it turns out that the performance is not satisfactory. 
 \end{frame}
 
-  
+\begin{comment}  
 \begin{frame}{Weakly Dependent Batches}
 	%\small 
 	
@@ -546,7 +454,7 @@ However, this approach requires the batch size should increase exponentially fas
 	
 	
 \end{frame} 	
-
+\end{comment}
 
 \begin{frame}{Method 3: Bootstrap}
 
@@ -684,15 +592,15 @@ respectively.
 
 
 
-\begin{frame}{Tuning parameters}
+\begin{frame}{Additional Features}
 	
 	\begin{itemize}
 		\item 
 		Initialize from    smoothed QR from Kaplan and Sun (2017), Fernandes et al (2021), He et al (2021).
 		
-		\item specifically, computed  fast using gradient descent update;  R package:  \texttt{conquer} and 5\% of the data to compute $\beta_0$, 
+		\item Specifically, computed  fast using gradient descent update;  R package:  \texttt{conquer} and 5\% of the data to compute $\beta_0$, 
 		
-		\item stepsize $ \gamma_{t} $ is set closer to upper bound, $ t^{-0.501} $. 
+		\item Stepsize $ \gamma_{t} $ is set closer to upper bound, $ t^{-0.501} $. 
 	\end{itemize}
 	
 \end{frame}
@@ -718,7 +626,7 @@ respectively.
 	
 \end{frame}
 
-
+\begin{comment}
 \begin{frame}{Forneron and Ng (2020)}
 	\begin{itemize}
 		\item They proposed 
@@ -801,6 +709,9 @@ respectively.
 	\end{enumerate}
 
 \end{frame}
+
+\end{comment}
+
 
 
 \section{Theoretical Results}
@@ -998,8 +909,7 @@ W_1\left(1\right)  \left[ \int_{0}^{1} \left\{ W_1\left(r\right)-rW_1\left(1\rig
 		\caption{Computation time} \label{fig:time}
 		\centering
 		\vskip10pt
-		\includegraphics[width=0.7\textwidth]{fig_time.png}
-%		\includegraphics[width=\textwidth]{fig_rel_time.png}
+		\includegraphics[width=0.7\textwidth]{figures/fig_time.png}
 	\end{figure}
 
 Note: Observe 'NA' for several cases.
@@ -1010,8 +920,7 @@ Note: Observe 'NA' for several cases.
 		\caption{Computation time} \label{fig:time}
 		\centering
 		\vskip10pt
-%		\includegraphics[width=\textwidth]{fig_time.png}
-		\includegraphics[width=\textwidth]{fig_rel_time.png}
+		\includegraphics[width=\textwidth]{figures/fig_rel_time.png}
 	\end{figure}
 	
 \end{frame}
@@ -1022,8 +931,7 @@ Note: Observe 'NA' for several cases.
 		\caption{Coverage Rate} \label{fig:ci}
 		\centering
 		\vskip10pt
-		\includegraphics[width=\textwidth]{fig_coverage.png}
-	%	\includegraphics[width=\textwidth]{fig_ci_length.png}
+		\includegraphics[width=\textwidth]{figures/fig_coverage.png}
 	\end{figure}
 	
 \end{frame}
@@ -1035,8 +943,7 @@ Note: Observe 'NA' for several cases.
 		\caption{Confidence Interval Length} \label{fig:ci}
 		\centering
 		\vskip10pt
-%		\includegraphics[width=\textwidth]{fig_coverage.png}
-			\includegraphics[width=\textwidth]{fig_ci_length.png}
+			\includegraphics[width=\textwidth]{figures/fig_ci_length.png}
 	\end{figure}
 	
 \end{frame}
@@ -1369,6 +1276,7 @@ Note: Observe 'NA' for several cases.
 	\begin{table}[ht]
 		\caption{Summary Statistics} \label{tb:summary_stat}
 		\centering
+		\footnotesize
 		\begin{tabular}{crcccc}
 			\hline
 			Year & Sample Size & $\mathbb E(F$) & $\mathbb E(Edu$) & $\mathbb E(Edu|M$) & $\mathbb E(Edu|F$) \\ 
@@ -1397,7 +1305,7 @@ Note: Observe 'NA' for several cases.
 			Combining 5-Year Data %. Full-time
 		}
 	\bigskip
-			\includegraphics[width=0.3\textwidth]{chart_1_03_FullT_5yr.png}  \includegraphics[width=0.3\textwidth]{chart_5_03_FullT_5yr.png} \includegraphics[width=0.3\textwidth]{chart_9_03_FullT_5yr.png} 
+			\includegraphics[width=0.3\textwidth]{figures/chart_1_03_FullT_5yr.png}  \includegraphics[width=0.3\textwidth]{figures/chart_5_03_FullT_5yr.png} \includegraphics[width=0.3\textwidth]{figures/chart_9_03_FullT_5yr.png} 
 			
 	\end{figure}
 	
@@ -1407,7 +1315,7 @@ Note: Observe 'NA' for several cases.
 	
 	\begin{table}[htb]
 		\centering
-		\small
+		\footnotesize
 		\caption{College Wage Premium: $\tau=0.5$}\label{tb:median_5yr_full}
 		\begin{tabular}{ccccc}
 			\hline

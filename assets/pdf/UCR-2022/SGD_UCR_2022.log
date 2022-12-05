@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.4.28)  4 DEC 2022 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.4.28)  4 DEC 2022 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1121,20 +1121,20 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 228
+LaTeX Font Info:    Trying to load font information for U+msa on input line 218
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 228
+LaTeX Font Info:    Trying to load font information for U+msb on input line 218
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 228.
+ut line 218.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
@@ -1160,12 +1160,12 @@ thkerncmss.
 
 ] [11
 
-
 ] [12
 
 ] [13
 
-] [14
+]
+Excluding 'comment' comment. [14
 
 ] [15
 
@@ -1173,12 +1173,12 @@ thkerncmss.
 
 ] [17
 
-]
-[18
+] [18
 
 ] [19
 
-] [20
+]
+Excluding 'comment' comment. [20
 
 ] [21
 
@@ -1196,120 +1196,104 @@ thkerncmss.
 
 ] [28
 
-] [29
-
-] [30
-
-] [31
-
-] [32
-
 ]
-[33
+<figures/fig_time.png, id=1630, 1089.31969pt x 502.12593pt>
+File: figures/fig_time.png Graphic file (type png)
+<use figures/fig_time.png>
+Package pdftex.def Info: figures/fig_time.png  used on input line 917.
+(pdftex.def)             Requested size: 215.10196pt x 99.15154pt.
+
+[29
+
+ <./figures/fig_time.png (PNG copy)>]pdfTeX warning (ext4): destination with th
+e same identifier (name{fig:time}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.926 \end{frame}
+                 
+<figures/fig_rel_time.png, id=1685, 973.38657pt x 578.91281pt>
+File: figures/fig_rel_time.png Graphic file (type png)
+<use figures/fig_rel_time.png>
+Package pdftex.def Info: figures/fig_rel_time.png  used on input line 926.
+(pdftex.def)             Requested size: 307.28987pt x 182.756pt.
+ [30
+
+ <./figures/fig_rel_time.png (PNG copy)>]
+<figures/fig_coverage.png, id=1738, 1237.62375pt x 645.16031pt>
+File: figures/fig_coverage.png Graphic file (type png)
+<use figures/fig_coverage.png>
+Package pdftex.def Info: figures/fig_coverage.png  used on input line 937.
+(pdftex.def)             Requested size: 307.28987pt x 160.1871pt.
+ [31
+
+ <./figures/fig_coverage.png (PNG copy)>]pdfTeX warning (ext4): destination wit
+h the same identifier (name{fig:ci}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.949 \end{frame}
+                 
+<figures/fig_ci_length.png, id=1794, 973.38657pt x 578.91281pt>
+File: figures/fig_ci_length.png Graphic file (type png)
+<use figures/fig_ci_length.png>
+Package pdftex.def Info: figures/fig_ci_length.png  used on input line 949.
+(pdftex.def)             Requested size: 307.28987pt x 182.756pt.
+ [32
+
+ <./figures/fig_ci_length.png (PNG copy)>] [33
 
 ] [34
 
-] [35
+]
+[35
+
+] [36
+
+] [37
+
+
+] [38
+
+
+] [39
 
 ]
-<fig_time.png, id=2260, 906.73639pt x 679.84221pt>
-File: fig_time.png Graphic file (type png)
-<use fig_time.png>
-Package pdftex.def Info: fig_time.png  used on input line 1007.
-(pdftex.def)             Requested size: 215.10196pt x 161.27747pt.
- [36
+<figures/chart_1_03_FullT_5yr.png, id=2221, 602.25pt x 602.25pt>
+File: figures/chart_1_03_FullT_5yr.png Graphic file (type png)
+<use figures/chart_1_03_FullT_5yr.png>
+Package pdftex.def Info: figures/chart_1_03_FullT_5yr.png  used on input line 1
+312.
+(pdftex.def)             Requested size: 92.1879pt x 92.1807pt.
+<figures/chart_5_03_FullT_5yr.png, id=2222, 602.25pt x 602.25pt>
+File: figures/chart_5_03_FullT_5yr.png Graphic file (type png)
+<use figures/chart_5_03_FullT_5yr.png>
+Package pdftex.def Info: figures/chart_5_03_FullT_5yr.png  used on input line 1
+312.
+(pdftex.def)             Requested size: 92.1879pt x 92.1807pt.
+<figures/chart_9_03_FullT_5yr.png, id=2223, 602.25pt x 602.25pt>
+File: figures/chart_9_03_FullT_5yr.png Graphic file (type png)
+<use figures/chart_9_03_FullT_5yr.png>
+Package pdftex.def Info: figures/chart_9_03_FullT_5yr.png  used on input line 1
+312.
+(pdftex.def)             Requested size: 92.1879pt x 92.1807pt.
+ [40
 
- <./fig_time.png (PNG copy)>]pdfTeX warning (ext4): destination with the same i
-dentifier (name{fig:time}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1017 \end{frame}
-                  
-<fig_rel_time.png, id=2322, 973.38657pt x 578.91281pt>
-File: fig_rel_time.png Graphic file (type png)
-<use fig_rel_time.png>
-Package pdftex.def Info: fig_rel_time.png  used on input line 1017.
-(pdftex.def)             Requested size: 307.28987pt x 182.756pt.
- [37
+ <./figures/chart_1_03_FullT_5yr.png (PNG copy)> <./figures/chart_5_03_FullT_5y
+r.png (PNG copy)> <./figures/chart_9_03_FullT_5yr.png (PNG copy)>]
+Overfull \hbox (17.95828pt too wide) in paragraph at lines 1343--1343
+ [] 
+ []
 
- <./fig_rel_time.png (PNG copy)>]
-<fig_coverage.png, id=2384, 1237.62375pt x 645.16031pt>
-File: fig_coverage.png Graphic file (type png)
-<use fig_coverage.png>
-Package pdftex.def Info: fig_coverage.png  used on input line 1029.
-(pdftex.def)             Requested size: 307.28987pt x 160.1871pt.
- [38
-
- <./fig_coverage.png (PNG copy)>]pdfTeX warning (ext4): destination with the sa
-me identifier (name{fig:ci}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1042 \end{frame}
-                  
-<fig_ci_length.png, id=2445, 973.38657pt x 578.91281pt>
-File: fig_ci_length.png Graphic file (type png)
-<use fig_ci_length.png>
-Package pdftex.def Info: fig_ci_length.png  used on input line 1042.
-(pdftex.def)             Requested size: 307.28987pt x 182.756pt.
- [39
-
- <./fig_ci_length.png (PNG copy)>] [40
-
-] [41
+[41
 
 ] [42
 
 ]
-[43
-
-] [44
-
-
-] [45
-
-
-]
-Overfull \hbox (18.89662pt too wide) in paragraph at lines 1388--1388
- [] 
- []
-
-[46
-
-]
-<chart_1_03_FullT_5yr.png, id=2929, 602.25pt x 602.25pt>
-File: chart_1_03_FullT_5yr.png Graphic file (type png)
-<use chart_1_03_FullT_5yr.png>
-Package pdftex.def Info: chart_1_03_FullT_5yr.png  used on input line 1404.
-(pdftex.def)             Requested size: 92.1879pt x 92.1807pt.
-<chart_5_03_FullT_5yr.png, id=2930, 602.25pt x 602.25pt>
-File: chart_5_03_FullT_5yr.png Graphic file (type png)
-<use chart_5_03_FullT_5yr.png>
-Package pdftex.def Info: chart_5_03_FullT_5yr.png  used on input line 1404.
-(pdftex.def)             Requested size: 92.1879pt x 92.1807pt.
-<chart_9_03_FullT_5yr.png, id=2931, 602.25pt x 602.25pt>
-File: chart_9_03_FullT_5yr.png Graphic file (type png)
-<use chart_9_03_FullT_5yr.png>
-Package pdftex.def Info: chart_9_03_FullT_5yr.png  used on input line 1404.
-(pdftex.def)             Requested size: 92.1879pt x 92.1807pt.
- [47
-
- <./chart_1_03_FullT_5yr.png (PNG copy)> <./chart_5_03_FullT_5yr.png (PNG copy)
-> <./chart_9_03_FullT_5yr.png (PNG copy)>]
-Overfull \hbox (39.34972pt too wide) in paragraph at lines 1435--1435
- [] 
- []
-
-[48
-
-] [49
-
-]
-<figures/thankyou.jpg, id=3113, 144.2991pt x 147.4308pt>
+<figures/thankyou.jpg, id=2383, 144.2991pt x 147.4308pt>
 File: figures/thankyou.jpg Graphic file (type jpg)
 <use figures/thankyou.jpg>
-Package pdftex.def Info: figures/thankyou.jpg  used on input line 1468.
+Package pdftex.def Info: figures/thankyou.jpg  used on input line 1376.
 (pdftex.def)             Requested size: 144.29874pt x 147.43044pt.
- [50
+ [43
 
  <./figures/thankyou.jpg>]
 \tf@nav=\write7
@@ -1329,11 +1313,11 @@ Package rerunfilecheck Info: File `SGD_UCR_2022.out' has not changed.
 (rerunfilecheck)             Checksum: C6B42A556B1D68E49E12CB388809E883;730.
  ) 
 Here is how much of TeX's memory you used:
- 27987 strings out of 478287
- 561383 string characters out of 5849289
- 953337 words of memory out of 5000000
- 45475 multiletter control sequences out of 15000+600000
- 484194 words of font info for 81 fonts, out of 8000000 for 9000
+ 27958 strings out of 478287
+ 561435 string characters out of 5849289
+ 943249 words of memory out of 5000000
+ 45460 multiletter control sequences out of 15000+600000
+ 483544 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,122p,427b,773s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
@@ -1357,10 +1341,10 @@ ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb>
-Output written on SGD_UCR_2022.pdf (50 pages, 629073 bytes).
+Output written on SGD_UCR_2022.pdf (43 pages, 602316 bytes).
 PDF statistics:
- 3296 PDF objects out of 3580 (max. 8388607)
- 3099 compressed objects within 31 object streams
- 118 named destinations out of 1000 (max. 500000)
+ 2557 PDF objects out of 2984 (max. 8388607)
+ 2381 compressed objects within 24 object streams
+ 104 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
