@@ -220,7 +220,7 @@ In this paper, we tackle on the \tcb{inference} problem of quantile regression (
 \frametitle{Big Picture}
 \bit
 	\item Standard asymptotics: $n \gg d$. E.g.~$n=1000$ and $d=20$.
-	\item High-dimensional approach: $n \sim d$ or $n \ll p$. E.g.~$n \sim \exp(d)$
+	\item High-dimensional approach: $n \sim d$ or $n \ll d$. E.g.~$n \sim \exp(d)$
 	\bit
 		\item[-] Threshold regression: LSS (2016, JRSSB), LLSS (2018, JASA), LLSS (2021a, AOS).
 		\item[-] Filtering and prediction: LLSS (2021b, JOE), LS (forthcoming, JOE)
@@ -232,7 +232,7 @@ In this paper, we tackle on the \tcb{inference} problem of quantile regression (
 \end{frame}
 
 \begin{frame}{Standard QR Estimator}
-	Let $\{Y_i\equiv((y_i,x_i) \in \mathbb{R}^(1+d): i=1,\ldots,n\}$ be a random sample generated from 
+	Let $\{Y_i\equiv(y_i,x_i) \in \mathbb{R}^{1+d}: i=1,\ldots,n\}$ be a random sample generated from 
 		$y_i = x_i'\beta^*+ \varepsilon_i,\quad P(\varepsilon\leq 0|x_i)= \tau.$
 	\bigskip 
 
@@ -253,7 +253,7 @@ In this paper, we tackle on the \tcb{inference} problem of quantile regression (
 \end{frame}
 
 \begin{frame}{Standard QR Estimator (cont.)}
-	The standard M-estimator theory gives us 
+	The standard M-estimator asymptotics gives us 
 	\eqs{
 	\sqrt{n}(\widehat\beta_n-\beta^*) \overset{d}{\to} N(0, \tau(1-\tau)H^{-1}\mathbb E[x_ix_i'] H^{-1}),
 	}
@@ -275,14 +275,14 @@ Let $\beta^*$ be the parameter of interest:
 \eqs{
     \beta^{*}:=\arg\min_{\beta\in\mathbb{R}^{d}}Q\left(\beta\right)
 }
-where $Q:=E[q(\beta,Y)]$ and $q$ is diff.~and convex. Let $\left\{ Y_{t}\right\} _{t=1}^{n}$ be a random sample. The sample analogue of the FOC is
+where $Q:=\mathbb{E}[q(\beta,Y)]$ and $q$ is diff.~and convex. Let $\left\{ Y_{i}\right\} _{i=1}^{n}$ be a random sample. The sample analogue of the FOC is
 \eqs{
-    \frac{1}{n}\sum_{t=1}^n \nabla q\left(\hat{\beta},Y_{t}\right) = 0.
+    \frac{1}{n}\sum_{i=1}^n \nabla q\left(\hat{\beta},Y_{i}\right) = 0.
 }
 
 If we don't have a reduced form solution, we can solve it iteratively:
 \eqs{
-    \hat{\beta}_{m} = \hat{\beta}_{m-1} - \gamma_m \frac{1}{n}\sum_{t=1}^n \nabla q\left(\hat{\beta}_{m-1},Y_{t}\right).
+    \hat{\beta}_{m} = \hat{\beta}_{m-1} - \gamma_m \frac{1}{n}\sum_{i=1}^n \nabla q\left(\hat{\beta}_{m-1},Y_{i}\right).
 }
 \end{frame}
 
@@ -298,7 +298,7 @@ Binding time budget or the memory size occurs more often in modern empirical app
 
 Robbins and Monro (1951) proposed the stochastic gradient descent (SGD) solution path as
         \eqs{
-            \beta_{t}=\beta_{t-1}-\gamma_{t}\nabla q\left(\beta_{t-1},Y_{t}\right).
+            \beta_{i}=\beta_{i-1}-\gamma_{i}\nabla q\left(\beta_{i-1},Y_{i}\right).
         }
 
 SGD has advantages when we face \tcb{a large-scale dataset} or \tcb{online machine learning}.
@@ -314,7 +314,7 @@ Recall that we aim to develop \tcb{online inference} with SGD.
 \bigskip
 
 We study the classical Polyak-Ruppert averaging estimator (Polyak (1990) and Ruppert(1988)):
-$\bar{\beta}_{n}:=n^{-1}\sum_{t=1}^{n}\beta_{t}$.
+$\bar{\beta}_{n}:=n^{-1}\sum_{i=1}^{n}\beta_{i}$.
 \medskip
 
 Polyak and Juditsky (1992)
@@ -336,7 +336,7 @@ In online learning, data arrive sequentially.
 
 
 The  Polyak-Ruppert estimator $\bar{\beta}_{n}$ can be computed recursively
-by the updating rule $$\bar{\beta}_{t}=\bar{\beta}_{t-1}\frac{t-1}{t}+\frac{\beta_{t}}{t},$$
+by the updating rule $$\bar{\beta}_{i}=\bar{\beta}_{i-1}\frac{i-1}{i}+\frac{\beta_{i}}{i},$$
 which implies that it is well suited to the online setting.
 
 \bigskip
@@ -402,13 +402,13 @@ the naive implementation of estimating it requires storing all data, thereby los
 \begin{frame}{Method 1: Plug-In}
 
 
-Chen et al.~(2020) addressed this issue by  estimating   $H$ and $S$ using the online iterated estimator $\beta_t$, and recursively updating   them   whenever a new observation  is available.
+Chen et al.~(2020) addressed this issue by  estimating   $H$ and $S$ using the online iterated estimator $\beta_i$, and recursively updating   them   whenever a new observation  is available.
 
 \bigskip 
 However, the plug-in estimator requires that the Hessian matrix be computed to estimate $H$.
 
 \bigskip
-In other words, it is necessary to have strictly more inputs than  the SGD solution paths $\beta_t$ to carry out inference. It is the case even when a t-statistic is computed for each regression coefficient.
+In other words, it is necessary to have strictly more inputs than  the SGD solution paths $\beta_i$ to carry out inference. It is the case even when a t-statistic is computed for each regression coefficient.
 
 \bigskip
 In applications, it can be demanding to compute the Hessian matrix and its inverse. 
@@ -477,10 +477,10 @@ Instead of estimating the asymptotic variance, Fang et al. (2018) proposed a  bo
 Specifically, they proposed to use a large number (say, $B$) of randomly perturbed
 SGD solution paths: for all $b = 1, \ldots, B$, starting with $\beta_0^{(b)} = \beta_0$ and then iterating
 \begin{equation*}
-\beta_{t}^{(b)}=\beta_{t-1}^{(b)}-\gamma_{t} \eta_t^{(b)} \nabla q\left(\beta_{t-1}^{(b)},Y_{t}\right),
+\beta_{i}^{(b)}=\beta_{i-1}^{(b)}-\gamma_{i} \eta_i^{(b)} \nabla q\left(\beta_{i-1}^{(b)},Y_{i}\right),
 \label{eq:SGD1:bt}
 \end{equation*}
-where $\eta_t^{(b)} > 0$ is an independent and identically distributed random variable that has mean one and variance one.
+where $\eta_i^{(b)} > 0$ is an independent and identically distributed random variable that has mean one and variance one.
 
 
 \bigskip
@@ -497,8 +497,8 @@ and can be time-consuming.
 	\item Lee, Liao, Seo, Shin (LLSS, 2022) proposed not to estimate the asymptotic variance $\Upsilon$,  but to studentize   $\sqrt{n}\left(\bar{\beta}_{n}-\beta^{*}\right)$ via $ \widehat{V}_{n}^{1/2} $, where
 	\begin{align*}\label{def:random-scaling}
 	\widehat{V}_{n} := \frac{1}{n}\sum_{s=1}^{n}
-	\left\{ \frac{1}{\sqrt{n}} \sum_{t=1}^{s} \left( \beta_{t}-\bar{\beta}_{n} \right) \right \}
-	\left\{ \frac{1}{\sqrt{n}} \sum_{t=1}^{s} \left( \beta_{t}-\bar{\beta}_{n} \right) \right \}'.
+	\left\{ \frac{1}{\sqrt{n}} \sum_{i=1}^{s} \left( \beta_{i}-\bar{\beta}_{n} \right) \right \}
+	\left\{ \frac{1}{\sqrt{n}} \sum_{i=1}^{s} \left( \beta_{i}-\bar{\beta}_{n} \right) \right \}'.
 	\end{align*}
 	\note{this is the integral of the square of a centered partial sum process or that of empirical Brownian Bridge}
 	
@@ -529,30 +529,30 @@ and can be time-consuming.
  \SetKwInput{KwInit}{Initialize}
  \SetKwInput{KwReceive}{Receive}
 
- \KwInput{function $\nabla q(\cdot)$, parameters $(\gamma_0, a)$ for step size $\gamma_t=\gamma_0 t^{-a}$ for $t \geq 1$}
+ \KwInput{function $\nabla q(\cdot)$, parameters $(\gamma_0, a)$ for step size $\gamma_i=\gamma_0 i^{-a}$ for $i \geq 1$}
 
  \KwInit{
   set initial values for $\beta_0, \bar{\beta}_0, A_0, b_0$
  }
- \For{$t = 1,2, \ldots $} {
-    \KwReceive{new observation $Y_t$}
-    $\beta_{t}=\beta_{t-1}-\gamma_{t}\nabla q\left(\beta_{t-1},Y_{t}\right)$
+ \For{$i = 1,2, \ldots $} {
+    \KwReceive{new observation $Y_i$}
+    $\beta_{i}=\beta_{i-1}-\gamma_{i}\nabla q\left(\beta_{i-1},Y_{i}\right)$
 
-    $\bar{\beta}_{t}=\bar{\beta}_{t-1}\frac{t-1}{t}+\frac{\beta_{t}}{t}$
+    $\bar{\beta}_{i}=\bar{\beta}_{i-1}\frac{i-1}{i}+\frac{\beta_{i}}{i}$
 
-    $A_{t} = A_{t-1} + t^{2}\bar{\beta}_{t}\bar{\beta}_{t}'$
+    $A_{i} = A_{i-1} + i^{2}\bar{\beta}_{i}\bar{\beta}_{i}'$
 
-    $b_{t} = b_{t-1} + t^{2}\bar{\beta}_{t}$
+    $b_{i} = b_{i-1} + i^{2}\bar{\beta}_{i}$
     
-    $c_t =c_{t-1} + t^2$
+    $c_i =c_{i-1} + i^2$
 
-    Obtain $\widehat{V}_{t}$ by
+    Obtain $\widehat{V}_{i}$ by
       \[
-      \widehat{V}_{t}
-      = t^{-2} \left( A_t - \bar{\beta}_{t} b_{t}' - b_{t}\bar{\beta}_{t}' +\bar{\beta}_{t}\bar{\beta}_{t}'c_t \right)
+      \widehat{V}_{i}
+      = i^{-2} \left( A_i - \bar{\beta}_{i} b_{i}' - b_{i}\bar{\beta}_{i}' +\bar{\beta}_{i}\bar{\beta}_{i}'c_i \right)
       \]
 
-    \KwOutput{$\bar{\beta}_t$, $\widehat{V}_{t}$}
+    \KwOutput{$\bar{\beta}_i$, $\widehat{V}_{i}$}
  }
 \end{algorithm}
 
@@ -611,7 +611,7 @@ respectively.
 		\item 
 		We set an initial value $\beta_0$ from He et al (2021). Works well with only 1\% or 5\% of the sample. 
 		
-		\item We set the step size $ \gamma_{t} $ is set closer to upper bound, $ t^{-0.501} $. 
+		\item We set the step size $ \gamma_{i} $ is set closer to upper bound, $ i^{-0.501} $. 
 
 		\item It does not involve any inverse matrix. We can iterate only a sub-matrix of $\widehat{V}_n$. E.g.~a scalar vs.~a $(1000\times 1000)$ matrix.
 	\end{itemize}
@@ -744,14 +744,14 @@ respectively.
 We first  extend
 Polyak and Juditsky (1992)'s central limit theorem (CLT) to a \emph{functional} CLT (FCLT) for partial sum process:
 \begin{equation*}\label{eq4}
-\frac{1}{\sqrt{n}}\sum_{t=1}^{\left[nr\right]}\left(\beta_{t}-\beta^{*}\right)\Rightarrow \Upsilon^{1/2}W\left(r\right),\quad r\in\left[0,1\right],
+\frac{1}{\sqrt{n}}\sum_{i=1}^{\left[nr\right]}\left(\beta_{i}-\beta^{*}\right)\Rightarrow \Upsilon^{1/2}W\left(r\right),\quad r\in\left[0,1\right],
 \end{equation*}
 where $\Rightarrow$ stands for the weak convergence in $\ell^{\infty}\left[0,1\right]$
 and $W\left(r\right)$ stands for a vector of the independent standard
 Wiener processes on $\left[0,1\right]$.
 
 \bigskip
-That is, the partial sum of the online updated estimates $\beta_t$ converges weakly to a rescaled Wiener process,
+That is, the partial sum of the online updated estimates $\beta_i$ converges weakly to a rescaled Wiener process,
 
 \bigskip 
 Note that the scaling $\Upsilon^{1/2}$ is equal to the square root  asymptotic variance of the Polyak-Ruppert average.
@@ -760,9 +760,9 @@ Note that the scaling $\Upsilon^{1/2}$ is equal to the square root  asymptotic v
 
 \begin{frame}{PJ's approximation}
 	Their CLT is built on a brilliant stochastic approximation that 
-	\[  \frac{1}{\sqrt{n}}\sum_{t=1}^{n}\left(\beta_{t}-\beta^{*}\right) = \frac{1}{\sqrt{n}}\sum_{t=1}^{n}H^{-1}\xi_{t} + o_p (1),
+	\[  \frac{1}{\sqrt{n}}\sum_{i=1}^{n}\left(\beta_{i}-\beta^{*}\right) = \frac{1}{\sqrt{n}}\sum_{i=1}^{n}H^{-1}\xi_{i} + o_p (1),
 	 \]
-	 where $ \xi_{t}\ $ is a martingale difference sequence (MDS) whose variance converges to the score variance. 
+	 where $ \xi_{i}\ $ is a martingale difference sequence (MDS) whose variance converges to the score variance. 
 	 \bigskip
 	 
 	 For FCLT, it is required to extend the approximation to the uniform approximation. 
@@ -872,7 +872,7 @@ W_1\left(1\right)  \left[ \int_{0}^{1} \left\{ W_1\left(r\right)-rW_1\left(1\rig
  
 \begin{frame}{Settings} 
 	\begin{itemize}
-		\item $\mbox{dim}(x_t)=d\in\{10, 30, 180, 320, 1000\}$
+		\item $\mbox{dim}(x_i)=d\in\{10, 30, 180, 320, 1000\}$
 		\item $n\in\{10^5, 10^6,10^7\}.$
 		\item We compare 5 methods:
 		
@@ -1417,6 +1417,41 @@ Note: Observe 'NA' for several cases.
 \centering
    \includegraphics[scale=1]{figures/thankyou.jpg}
 }
+
+
+
+
+\begin{frame}
+	\vfill
+	\centering
+	\LARGE{Diversity, Equity, and Inclusion}
+	\vfill
+\end{frame}
+
+\fm{
+   \includegraphics[width=\textwidth]{figures/conf.png}
+}
+
+\begin{frame}{Diversity, Equity, and Inclusion} 
+\bit
+	\item Women in Econometrics Conference (October, 2022)
+	\item Qualitative experience of differences
+		\bit
+			\item Students from underrepresented group (especially in grad school)
+			\item Conversations with female colleagues
+			\item Books
+			\item Panel discussions; online materials
+		\eit
+	\item Education. Let them put themselves into others' shoes.
+		\bit
+			\item My experience from Rubinstein and Krusell's lectures
+			\item Missing points by certain analyses
+		\eit
+	\item Committee activity: recruiting, promotion, and grad admission 
+\eit
+
+\end{frame}
+
 
 \end{document}
 
