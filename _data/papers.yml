@@ -184,6 +184,16 @@ papers:
     arxiv:        
 
 workingpapers:
+  - title:         "Optimal Delegation in Markets for Matching with Signaling"
+    link:      
+    coauthors:     Seungjin Han and Alex Sam
+    journal:       
+    vol_no:        
+    year:          March 2023 
+    page:          
+    arxiv:         http://arxiv.org/abs/2303.09415
+    recent:       TRUE
+
   - title:        "Statistical Treatment Rules under Social Interaction"
     link:
     coauthors:    Seungjin Han and Julius Owusu
@@ -213,12 +223,12 @@ workingpapers:
     page:  
     arxiv:        https://arxiv.org/abs/2207.01533       
 
-  - title:         "Designing a Competitive Monotone Signaling Equilibrium"
+  - title:         "Stronger Monotone Signaling Equilibrium"
     link:      
     coauthors:     Seungjin Han and Alex Sam
     journal:       Journal of Economic Theory
     vol_no:        Revise and Resubmit
-    year:          July 2022 
+    year:          March 2023 
     page:          
     arxiv:         https://arxiv.org/abs/2109.03370
     recent:       TRUE
