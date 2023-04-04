@@ -9,16 +9,6 @@ papers:
     arxiv:         https://arxiv.org/abs/2101.11568
     recent:        TRUE
 
-  - title: "Fast and Robust Online Inference with Stochastic Gradient Descent via Random Scaling"
-    link: https://ojs.aaai.org/index.php/AAAI/article/view/20701
-    coauthors: Sokbae Lee, Yuan Liao, Myung Hwan Seo
-    journal: Proceedings of the 36th AAAI Conference on Artificial Intelligence
-    vol_no: 36(7)
-    year: 2022
-    page: 7381-7389
-    arxiv: https://arxiv.org/abs/2106.03156
-    recent:       TRUE
-
   - title: "Complete Subset Averaging for Quantile Regression"
     link: https://doi.org/10.1017/S0266466621000402
     coauthors: Ji Hyung Lee
@@ -27,6 +17,16 @@ papers:
     year: 2023
     page: 146-188
     arxiv: https://arxiv.org/abs/2003.03299
+    recent:       TRUE
+
+  - title: "Fast and Robust Online Inference with Stochastic Gradient Descent via Random Scaling"
+    link: https://ojs.aaai.org/index.php/AAAI/article/view/20701
+    coauthors: Sokbae Lee, Yuan Liao, Myung Hwan Seo
+    journal: Proceedings of the 36th AAAI Conference on Artificial Intelligence
+    vol_no: 36(7)
+    year: 2022
+    page: 7381-7389
+    arxiv: https://arxiv.org/abs/2106.03156
     recent:       TRUE
 
   - title:        "Exact Computation of Maximum Rank Correlation Estimator"
@@ -217,9 +217,9 @@ workingpapers:
   - title:        "csa2sls: A complete subset approach for many instruments using Stata"
     link:
     coauthors:    Seojeong Lee, Siha Lee, and Julius Owusu
-    journal:      
-    vol_no:       Under Review
-    year:         July 2022 
+    journal:      Stata Journal
+    vol_no:       Revise and Resubmit
+    year:         April 2022
     page:  
     arxiv:        https://arxiv.org/abs/2207.01533       
 
