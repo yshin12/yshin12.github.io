@@ -1,10 +1,19 @@
 papers:
+  - title:        "csa2sls: A complete subset approach for many instruments using Stata"
+    link:
+    coauthors:    Seojeong Lee, Siha Lee, and Julius Owusu
+    journal:      Stata Journal
+    vol_no:       Forthcoming
+    year:         2023+
+    page:  
+    arxiv:        https://arxiv.org/abs/2207.01533       
+
   - title:         "Predictive Quantile Regression with Mixed Roots and Increasing Dimensions: The ALQR Approach"
     link:          https://doi.org/10.1016/j.jeconom.2022.11.006
     coauthors:     Rui Fan and Ji Hyung Lee
     journal:       Journal of Econometrics
     vol_no:        Forthcoming
-    year:          November 2022
+    year:          2023+
     page:          
     arxiv:         https://arxiv.org/abs/2101.11568
     recent:        TRUE
@@ -213,15 +222,6 @@ workingpapers:
     page:  
     arxiv:        https://arxiv.org/abs/2209.14502
     recent:       TRUE
-
-  - title:        "csa2sls: A complete subset approach for many instruments using Stata"
-    link:
-    coauthors:    Seojeong Lee, Siha Lee, and Julius Owusu
-    journal:      Stata Journal
-    vol_no:       Revise and Resubmit
-    year:         April 2022
-    page:  
-    arxiv:        https://arxiv.org/abs/2207.01533       
 
   - title:         "Stronger Monotone Signaling Equilibrium"
     link:      
