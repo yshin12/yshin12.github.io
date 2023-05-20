@@ -207,7 +207,7 @@ workingpapers:
     link:
     coauthors:    Seungjin Han and Julius Owusu
     journal:
-    vol_no:       Under Review
+    vol_no:       
     year:         November 2022
     page:
     arxiv:        https://arxiv.org/abs/2209.09077
@@ -216,8 +216,8 @@ workingpapers:
   - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
     link:
     coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
-    journal:      
-    vol_no:       Under Review
+    journal:      Journal of Econometrics
+    vol_no:       Revise and Resubmit
     year:         February 2023 
     page:  
     arxiv:        https://arxiv.org/abs/2209.14502
