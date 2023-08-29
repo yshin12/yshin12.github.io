@@ -193,6 +193,16 @@ papers:
     arxiv:        
 
 workingpapers:
+  - title:         "SGMM: Stochastic Approximation to Generalized Method of Moments"
+    link:
+    coauthors:     Xiaohong Chen, Sokbae Lee, Myung Hwan Seo, Myunghyung Song
+    journal:
+    vol_no:        Under Review
+    year:          August 2023
+    page:
+    arxiv:         http://arxiv.org/abs/2308.13564
+    recent:       TRUE
+
   - title:         "Optimal Delegation in Markets for Matching with Signaling"
     link:      
     coauthors:     Seungjin Han and Alex Sam
