@@ -195,7 +195,7 @@ papers:
 workingpapers:
   - title:         "SGMM: Stochastic Approximation to Generalized Method of Moments"
     link:
-    coauthors:     Xiaohong Chen, Sokbae Lee, Myung Hwan Seo, Myunghyung Song
+    coauthors:     Xiaohong Chen, Sokbae Lee, Yuan Liao, Myung Hwan Seo, and Myunghyun Song
     journal:
     vol_no:        Under Review
     year:          August 2023
