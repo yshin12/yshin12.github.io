@@ -22,8 +22,8 @@ papers:
     link:          https://doi.org/10.1016/j.jeconom.2022.11.006
     coauthors:     Rui Fan and Ji Hyung Lee
     journal:       Journal of Econometrics
-    vol_no:        Forthcoming
-    year:          2023+
+    vol_no:        237(2)
+    year:          2023
     page:          
     arxiv:         https://arxiv.org/abs/2101.11568
     recent:        TRUE
@@ -203,6 +203,26 @@ papers:
     arxiv:        
 
 workingpapers:
+  - title:         "Monotone Equilibrium in Matching Markets with Signaling"
+    link:      
+    coauthors:     Seungjin Han and Alex Sam
+    journal:       Journal of Economic Theory
+    vol_no:        Revise and Resubmit
+    year:          November 2023 
+    page:          
+    arxiv:         https://arxiv.org/abs/2109.03370
+    recent:       TRUE
+
+  - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
+    link:
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
+    journal:      Journal of Econometrics
+    vol_no:       Revise and Resubmit
+    year:         October 2023 
+    page:  
+    arxiv:        https://arxiv.org/abs/2209.14502
+    recent:       TRUE
+
   - title:         "Optimal Delegation in Markets for Matching with Signaling"
     link:      
     coauthors:     Seungjin Han and Alex Sam
@@ -221,26 +241,6 @@ workingpapers:
     year:         November 2022
     page:
     arxiv:        https://arxiv.org/abs/2209.09077
-    recent:       TRUE
-
-  - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
-    link:
-    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
-    journal:      Journal of Econometrics
-    vol_no:       Revise and Resubmit
-    year:         October 2023 
-    page:  
-    arxiv:        https://arxiv.org/abs/2209.14502
-    recent:       TRUE
-
-  - title:         "Stronger Monotone Signaling Equilibrium"
-    link:      
-    coauthors:     Seungjin Han and Alex Sam
-    journal:       Journal of Economic Theory
-    vol_no:        Revise and Resubmit
-    year:          March 2023 
-    page:          
-    arxiv:         https://arxiv.org/abs/2109.03370
     recent:       TRUE
 
   - title:         "Returns to Skill and the Evolution of Skills for Older Men" 
