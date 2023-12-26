@@ -1,4 +1,14 @@
 papers:
+  - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
+    link:
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
+    journal:      Journal of Econometrics
+    vol_no:       Forthcoming
+    year:         2023+
+    page:  
+    arxiv:        https://arxiv.org/abs/2209.14502
+    recent:       TRUE
+
   - title:         "SGMM: Stochastic Approximation to Generalized Method of Moments"
     link:          https://academic.oup.com/jfec/advance-article/doi/10.1093/jjfinec/nbad027/7329397?utm_source=authortollfreelink&utm_campaign=jfec&utm_medium=email&guestAccessKey=905eb503-8e5a-4222-90b4-261e7c340ed6
     coauthors:     Xiaohong Chen, Sokbae Lee, Yuan Liao, Myung Hwan Seo, and Myunghyun Song
@@ -65,7 +75,7 @@ papers:
     year:         2021
     page:         1656-1678
     arxiv:        https://arxiv.org/abs/1810.11109
-    recent:       TRUE
+    recent:       
 
   - title:        Complete Subset Averaging with Many Instruments
     link:         https://doi.org/10.1093/ectj/utaa033
@@ -211,16 +221,6 @@ workingpapers:
     year:          November 2023 
     page:          
     arxiv:         https://arxiv.org/abs/2109.03370
-    recent:       TRUE
-
-  - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
-    link:
-    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
-    journal:      Journal of Econometrics
-    vol_no:       Revise and Resubmit
-    year:         October 2023 
-    page:  
-    arxiv:        https://arxiv.org/abs/2209.14502
     recent:       TRUE
 
   - title:         "Optimal Delegation in Markets for Matching with Signaling"
