@@ -25,7 +25,7 @@ papers:
     journal:      Stata Journal
     vol_no:       23(4)
     year:         2023
-    page:  
+    page:         932-941
     arxiv:        https://arxiv.org/abs/2207.01533       
 
   - title:         "Predictive Quantile Regression with Mixed Roots and Increasing Dimensions: The ALQR Approach"
