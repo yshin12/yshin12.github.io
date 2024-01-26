@@ -1,4 +1,14 @@
 papers:
+  - title:         "Monotone Equilibrium in Matching Markets with Signaling"
+    link:      
+    coauthors:     Seungjin Han and Alex Sam
+    journal:       Journal of Economic Theory
+    vol_no:        Forthcoming
+    year:          2023+
+    page:          
+    arxiv:         https://arxiv.org/abs/2109.03370
+    recent:       TRUE
+
   - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
     link:
     coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
@@ -46,7 +56,7 @@ papers:
     year: 2023
     page: 146-188
     arxiv: https://arxiv.org/abs/2003.03299
-    recent:       TRUE
+    recent:       
 
   - title: "Fast and Robust Online Inference with Stochastic Gradient Descent via Random Scaling"
     link: https://ojs.aaai.org/index.php/AAAI/article/view/20701
@@ -213,16 +223,6 @@ papers:
     arxiv:        
 
 workingpapers:
-  - title:         "Monotone Equilibrium in Matching Markets with Signaling"
-    link:      
-    coauthors:     Seungjin Han and Alex Sam
-    journal:       Journal of Economic Theory
-    vol_no:        Conditionally Accepted
-    year:          November 2023 
-    page:          
-    arxiv:         https://arxiv.org/abs/2109.03370
-    recent:       TRUE
-
   - title:         "Optimal Delegation in Markets for Matching with Signaling"
     link:      
     coauthors:     Seungjin Han and Alex Sam
