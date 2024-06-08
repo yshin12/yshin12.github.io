@@ -1,5 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "past conf updates"
+git commit -m "Updated"
 git push origin master
-
