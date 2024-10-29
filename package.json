@@ -33,6 +33,7 @@
     "build:js": "npm run uglify && npm run add-banner"
   },
   "dependencies": {
+    "braces": "^3.0.3",
     "shell-quote": "^1.7.4"
   }
 }
