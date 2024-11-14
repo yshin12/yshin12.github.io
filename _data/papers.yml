@@ -4,17 +4,17 @@ papers:
     coauthors:     Seungjin Han and Alex Sam
     journal:       Journal of Economic Theory
     vol_no:        216
-    year:          Article 105801, 2024
+    year:          2024, Article 105801
     page:
     arxiv:         https://arxiv.org/abs/2109.03370
-    recent:       TRUE
+    recent:         TRUE
 
   - title:        "Fast Inference for Quantile Regression with Tens of Millions of Observations"
     link:         https://doi.org/10.1016/j.jeconom.2024.105673
     coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
     journal:      Journal of Econometrics
-    vol_no:       Forthcoming
-    year:         105673, 2024
+    vol_no:       In Press
+    year:         2024, Article 105673
     page:
     arxiv:        https://arxiv.org/abs/2209.14502
     recent:       TRUE
