@@ -223,10 +223,20 @@ papers:
     arxiv:
 
 workingpapers:
+  - title:          "The Evolution of Unobserved Skill Returns in the U.S.: A New Approach Using Panel Data"
+    link:
+    coauthors:      Lance Lochner and Youngmin Park
+    journal:
+    vol_no:
+    year:          January 2025
+    page:
+    arxiv:         http://arxiv.org/abs/2501.09917
+    recent:        TRUE
+
   - title:         "Monotone Equilibrium Design for Matching Markets with Signaling "
     link:
     coauthors:     Seungjin Han and Alex Sam
-    journal:       Under Review
+    journal:
     vol_no:
     year:          June 2024
     page:
