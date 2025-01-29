@@ -1,4 +1,14 @@
 papers:
+  - title:         "SGMM: Stochastic Approximation to Generalized Method of Moments"
+    link:          https://doi.org/10.1093/jjfinec/nbad027
+    coauthors:     Xiaohong Chen, Sokbae Lee, Yuan Liao, Myung Hwan Seo, and Myunghyun Song
+    journal:       Journal of Financial Econometrics
+    vol_no:        23(1)
+    year:          2025
+    page:          nbad027
+    arxiv:         http://arxiv.org/abs/2308.13564
+    recent:        TRUE
+
   - title:         "Monotone Equilibrium in Matching Markets with Signaling"
     link:          https://doi.org/10.1016/j.jet.2024.105801
     coauthors:     Seungjin Han and Alex Sam
@@ -17,16 +27,6 @@ papers:
     year:         2024, Article 105673
     page:
     arxiv:        https://arxiv.org/abs/2209.14502
-    recent:       TRUE
-
-  - title:         "SGMM: Stochastic Approximation to Generalized Method of Moments"
-    link:          https://doi.org/10.1093/jjfinec/nbad027
-    coauthors:     Xiaohong Chen, Sokbae Lee, Yuan Liao, Myung Hwan Seo, and Myunghyun Song
-    journal:       Journal of Financial Econometrics
-    vol_no:        Forthcoming
-    year:          2023+
-    page:
-    arxiv:         http://arxiv.org/abs/2308.13564
     recent:       TRUE
 
   - title:        "csa2sls: A complete subset approach for many instruments using Stata"
