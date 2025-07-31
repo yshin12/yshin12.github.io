@@ -227,8 +227,8 @@ workingpapers:
     link:
     coauthors:     Seungjin Han and Alex Sam
     journal:
-    vol_no:
-    year:          June 2025
+    vol_no:        under review
+    year:          July 2025
     page:
     arxiv:         http://arxiv.org/abs/2406.01886
     recent:       TRUE
@@ -236,8 +236,8 @@ workingpapers:
   - title:          "The Evolution of Unobserved Skill Returns in the U.S.: A New Approach Using Panel Data"
     link:
     coauthors:      Lance Lochner and Youngmin Park
-    journal:
-    vol_no:
+    journal:       Review of Economic Studies
+    vol_no:        R & R
     year:          January 2025
     page:
     arxiv:         http://arxiv.org/abs/2501.09917
