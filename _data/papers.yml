@@ -223,6 +223,16 @@ papers:
     arxiv:
 
 workingpapers:
+  - title:        "Ranking Treatment Saturations under Clustered Network Interference"
+    link:
+    coauthors:    Seungjin Han and Julius Owusu
+    journal:
+    vol_no:
+    year:         June 2026
+    page:
+    arxiv:        https://arxiv.org/abs/2606.18590
+    recent:       TRUE
+
   - title:         "Optimal Wage Band for Job Matching with Signaling"
     link:
     coauthors:     Seungjin Han and Alex Sam
@@ -251,7 +261,7 @@ workingpapers:
     year:         November 2022
     page:
     arxiv:        https://arxiv.org/abs/2209.09077
-    recent:       TRUE
+    recent:
 
   - title:         "Returns to Skill and the Evolution of Skills for Older Men"
     link:
