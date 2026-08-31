@@ -223,11 +223,21 @@ papers:
     arxiv:
 
 workingpapers:
+  - title:        "SAUSS: Stochastic Approximation with Unbiased Simulated Scores for Limited Dependent Variable Models"
+    link:
+    coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
+    journal:
+    vol_no:
+    year:         August 2026
+    page:
+    arxiv:        https://arxiv.org/abs/2608.25304
+    recent:       TRUE
+
   - title:        "Ranking Treatment Saturations under Clustered Network Interference"
     link:
     coauthors:    Seungjin Han and Julius Owusu
     journal:
-    vol_no:
+    vol_no:       under reivew
     year:         June 2026
     page:
     arxiv:        https://arxiv.org/abs/2606.18590
@@ -236,8 +246,8 @@ workingpapers:
   - title:         "Optimal Wage Band for Job Matching with Signaling"
     link:
     coauthors:     Seungjin Han and Alex Sam
-    journal:
-    vol_no:        under review
+    journal:       European Economic Review
+    vol_no:        R & R
     year:          July 2025
     page:
     arxiv:         http://arxiv.org/abs/2406.01886
