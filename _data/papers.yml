@@ -223,6 +223,16 @@ papers:
     arxiv:
 
 workingpapers:
+  - title:        "A Stochastic Nested Fixed Point Algorithm for Large-Scale BLP Estimation"
+    link:
+    coauthors:    Zhentong Lu, Myung Hwan Seo, and Qichen Zhang
+    journal:
+    vol_no:
+    year:         September 2026
+    page:
+    arxiv:        https://arxiv.org/abs/2609.23998
+    recent:       TRUE
+
   - title:        "SAUSS: Stochastic Approximation with Unbiased Simulated Scores for Limited Dependent Variable Models"
     link:
     coauthors:    Sokbae Lee, Yuan Liao, and Myung Hwan Seo
