@@ -223,6 +223,16 @@ papers:
     arxiv:
 
 workingpapers:
+  - title:        "Ranking Treatment Saturations: Regret Bounds and Experimental Design"
+    link:
+    coauthors:    Seungjin Han and Julius Owusu
+    journal:
+    vol_no:       under revision
+    year:         October 2026
+    page:
+    arxiv:        https://arxiv.org/abs/2606.18590
+    recent:       TRUE
+
   - title:        "A Stochastic Nested Fixed Point Algorithm for Large-Scale BLP Estimation"
     link:
     coauthors:    Zhentong Lu, Myung Hwan Seo, and Qichen Zhang
@@ -241,16 +251,6 @@ workingpapers:
     year:         August 2026
     page:
     arxiv:        https://arxiv.org/abs/2608.25304
-    recent:       TRUE
-
-  - title:        "Ranking Treatment Saturations under Clustered Network Interference"
-    link:
-    coauthors:    Seungjin Han and Julius Owusu
-    journal:
-    vol_no:       under revision
-    year:         June 2026
-    page:
-    arxiv:        https://arxiv.org/abs/2606.18590
     recent:       TRUE
 
   - title:         "Optimal Wage Band for Job Matching with Signaling"
