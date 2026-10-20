@@ -230,7 +230,7 @@ workingpapers:
     vol_no:       under review
     year:         October 2026
     page:
-    arxiv:
+    arxiv:        https://arxiv.org/abs/2606.18590
     recent:       TRUE
 
   - title:        "A Stochastic Nested Fixed Point Algorithm for Large-Scale BLP Estimation"
